@@ -22,7 +22,7 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-//°æTHIS CPP FILE IS SINICIZED BY RIO®PSignalµ˜∂»ƒ£ƒ‚Xeon_HSU°ø
+//„ÄêTHIS CPP FILE IS SINICIZED BY RIO‚âíSignalË∞ÉÂ∫¶Ê®°ÊãüXeon_HSU„Äë
 // ---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -1408,7 +1408,7 @@ void TTrain::UpdateTrain(int Caller)
                     }
                     else
                     {
-						Loc = "°æŒª”⁄°ø" + TE.ElementID;
+						Loc = "„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
                     }
                 }
                 if((MidElement > -1) && !LocNamed)
@@ -1421,7 +1421,7 @@ void TTrain::UpdateTrain(int Caller)
                     }
                     else if(Loc == "")
                     {
-						Loc = "°æŒª”⁄°ø" + TE.ElementID;
+						Loc = "„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
                     }
                 }
                 if(Loc == "")
@@ -2331,7 +2331,7 @@ void TTrain::SetHeadCodeGraphics(int Caller, AnsiString Code)
     Utilities->CallLog.push_back(Utilities->TimeStamp() + "," + AnsiString(Caller) + ",SetHeadCodeGraphics," + HeadCode);
     if(Code.Length() != 4)
     {
-        TrainController->StopTTClockMessage(62, "≥µ¥Œ◊÷∑˚ ˝≤ª’˝»∑£°");
+        TrainController->StopTTClockMessage(62, "ËΩ¶Ê¨°Â≠óÁ¨¶Êï∞‰∏çÊ≠£Á°ÆÔºÅ");
     }
     for(int x = 1; x < 5; x++) // AnsiString indices start at 1
     {
@@ -3421,7 +3421,7 @@ void TTrain::PlotTrainWithNewBackgroundColour(int Caller, TColor NewBackgroundCo
     if(ColourError2)
     {
         TrainController->StopTTClockMessage(63,
-                                            "¡–≥µ÷∆∂Ø“—∏¥Œª£¨…Í«Îª÷∏¥°æ◊‘÷˜––≥µ°ø£°");
+                                            "ÂàóËΩ¶Âà∂Âä®Â∑≤Â§ç‰ΩçÔºåÁî≥ËØ∑ÊÅ¢Â§ç„ÄêËá™‰∏ªË°åËΩ¶„ÄëÔºÅ");
     }
     // NB need a separate 'for' loop since the plot order can be different from the graphic order depending on the direction
     // of motion
@@ -5109,7 +5109,7 @@ void TTrain::LogAction(int Caller, AnsiString OwnHeadCode, AnsiString OtherHeadC
     // need to set it in case MinsLate == 0, since it isn't tested for that
     if(ActionType == Arrive)
     {
-        ActionLog = "°æ“—µΩ¥Ô°ø";
+        ActionLog = "„ÄêÂ∑≤Âà∞Ëææ„Äë";
     }
     if(ActionType == Terminate)
     {
@@ -5118,121 +5118,121 @@ void TTrain::LogAction(int Caller, AnsiString OwnHeadCode, AnsiString OtherHeadC
             Utilities->CallLogPop(1104);
             return;
         }
-		ActionLog = "°æ“—Ω· ¯‘À”™°ø";
+		ActionLog = "„ÄêÂ∑≤ÁªìÊùüËøêËê•„Äë";
         TerminatedMessageSent = true;
     }
     if(ActionType == Depart)
     {
-		ActionLog = "°æ◊º±∏∑¢≥µ°ø";
+		ActionLog = "„ÄêÂáÜÂ§áÂèëËΩ¶„Äë";
     }
     if(ActionType == Pass)
     {
-        ActionLog = "°æ“—Õ®π˝°ø";
+        ActionLog = "„ÄêÂ∑≤ÈÄöËøá„Äë";
     }
     if(ActionType == Create)
     {
-        ActionLog = "°æ“—Œª”⁄°ø";
+        ActionLog = "„ÄêÂ∑≤‰Ωç‰∫é„Äë";
     }
     if(ActionType == Enter)
     {
-		ActionLog = "°æ¡–≥µΩ¯»ÎœΩ«¯°ø";
+		ActionLog = "„ÄêÂàóËΩ¶ËøõÂÖ•ËæñÂå∫„Äë";
     }
     if(ActionType == Leave)
     {
-        ActionLog = "°æ“—“∆Ωª°ø";
+        ActionLog = "„ÄêÂ∑≤Áßª‰∫§„Äë";
     }
     if(ActionType == FrontSplit)
     {
-        ActionLog = "°æ“—Ω‚±‡°ø";
+        ActionLog = "„ÄêÂ∑≤Ëß£Áºñ„Äë";
     }
     if(ActionType == RearSplit)
     {
-        ActionLog = "°æ“—Ω‚±‡°ø";
+        ActionLog = "„ÄêÂ∑≤Ëß£Áºñ„Äë";
     }
     if(ActionType == JoinedByOther)
     {
-        ActionLog = "°æ“—¡™π“°ø";
+        ActionLog = "„ÄêÂ∑≤ËÅîÊåÇ„Äë";
     }
     if(ActionType == ChangeDirection)
     {
-        ActionLog = "°æ“—µ˜œÚ°ø";
+        ActionLog = "„ÄêÂ∑≤Ë∞ÉÂêë„Äë";
     }
     if(ActionType == NewService)
     {
-        ActionLog = "°æ≥µ¥Œ±‰∏¸Œ™°ø";
+        ActionLog = "„ÄêËΩ¶Ê¨°ÂèòÊõ¥‰∏∫„Äë";
     }
     if(ActionType == TakeSignallerControl)
     {
-        ActionLog = "°æ“—◊™Œ™»Àπ§µ˜∂»°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂ∑≤ËΩ¨‰∏∫‰∫∫Â∑•Ë∞ÉÂ∫¶„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(ActionType == RestoreTimetableControl)
     {
-        ActionLog = "°æ“—ª÷∏¥◊‘÷˜––≥µ°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂ∑≤ÊÅ¢Â§çËá™‰∏ªË°åËΩ¶„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(ActionType == RemoveTrain)
     {
         if(Crashed)
         {
-            ActionLog = "°æ ¬π ¡–≥µ“—±ª“∆≥˝≥ˆœﬂ¬∑°ø°æŒª”⁄°ø";
+            ActionLog = "„Äê‰∫ãÊïÖÂàóËΩ¶Â∑≤Ë¢´ÁßªÈô§Âá∫Á∫øË∑Ø„Äë„Äê‰Ωç‰∫é„Äë";
         }
         else if(Derailed)
         {
-            ActionLog = "°æ ¬π ¡–≥µ“—±ª“∆≥˝≥ˆœﬂ¬∑°ø°æŒª”⁄°ø";
+            ActionLog = "„Äê‰∫ãÊïÖÂàóËΩ¶Â∑≤Ë¢´ÁßªÈô§Âá∫Á∫øË∑Ø„Äë„Äê‰Ωç‰∫é„Äë";
         }
         else
         {
-            ActionLog = "°æ¡–≥µ“—±ªŒ•πÊ“∆≥˝≥ˆœﬂ¬∑°ø°æŒª”⁄°ø";
+            ActionLog = "„ÄêÂàóËΩ¶Â∑≤Ë¢´ËøùËßÑÁßªÈô§Âá∫Á∫øË∑Ø„Äë„Äê‰Ωç‰∫é„Äë";
         }
     }
     if(ActionType == SignallerMoveForwards)
     {
-        ActionLog = "°æ“—–Ìø…«∞––°ø";
+        ActionLog = "„ÄêÂ∑≤ËÆ∏ÂèØÂâçË°å„Äë";
     }
     if(ActionType == SignallerStepForward)
     {
-        ActionLog = "°æ“—–Ìø…«∞“∆∞Î∏ˆ…ÌŒª°ø";
+        ActionLog = "„ÄêÂ∑≤ËÆ∏ÂèØÂâçÁßªÂçä‰∏™Ë∫´‰Ωç„Äë";
     }
     if(ActionType == SignallerChangeDirection)
     {
-        ActionLog = "°æ“—–Ìø…µ˜œÚ°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂ∑≤ËÆ∏ÂèØË∞ÉÂêë„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(ActionType == SignallerPassRedSignal)
     {
-        ActionLog = "°æ“—–Ìø…‘Ωπ˝Õ£≥µ–≈∫≈°ø";
+        ActionLog = "„ÄêÂ∑≤ËÆ∏ÂèØË∂äËøáÂÅúËΩ¶‰ø°Âè∑„Äë";
     }
     if(ActionType == SignallerControlStop)
     {
-        ActionLog = "°æ“—¡¢º¥Õ£≥µ°ø";
+        ActionLog = "„ÄêÂ∑≤Á´ãÂç≥ÂÅúËΩ¶„Äë";
     }
     if(ActionType == SignallerStop)
     {
-        ActionLog = "°æ“—Õ£≥µ¥˝√¸°ø";
+        ActionLog = "„ÄêÂ∑≤ÂÅúËΩ¶ÂæÖÂëΩ„Äë";
     }
     if(ActionType == SignallerJoin)
     {
-        ActionLog = "°æ“—–Ìø…¡™π“°ø";
+        ActionLog = "„ÄêÂ∑≤ËÆ∏ÂèØËÅîÊåÇ„Äë";
     }
     if(ActionType == TrainFailure)
     {
-        ActionLog = "°æ¡–≥µ∑¢…˙π ’œ°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(ActionType == RepairFailedTrain)
     {
-        ActionLog = "°æ¡–≥µπ ’œ“—Ω‚≥˝°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂàóËΩ¶ÊïÖÈöúÂ∑≤Ëß£Èô§„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(ActionType == SignallerLeave)
     {
-        ActionLog = "°æ“—“∆Ωª°ø°æŒª”⁄°ø";
+        ActionLog = "„ÄêÂ∑≤Áßª‰∫§„Äë„Äê‰Ωç‰∫é„Äë";
     }
     if(OtherHeadCode != "")
     {
-        OtherHeadCode += "°æŒª”⁄°ø";
+        OtherHeadCode += "„Äê‰Ωç‰∫é„Äë";
     }
     TDateTime ActualTime = TrainController->TTClockTime;
 
     if(Warning)
     {
-        BaseLog = Utilities->Format96HHMMSS(ActualTime) + "°æπ ’œæØ±®°ø" + HeadCode + ActionLog + OtherHeadCode + LocationName;
+        BaseLog = Utilities->Format96HHMMSS(ActualTime) + "„ÄêÊïÖÈöúË≠¶Êä•„Äë" + HeadCode + ActionLog + OtherHeadCode + LocationName;
         WarningBaseLog = Utilities->Format96HHMMSS(ActualTime) + "  " + HeadCode + ActionLog + OtherHeadCode + LocationName; //added time at v2.13.0
     }
     else
@@ -5275,24 +5275,24 @@ void TTrain::LogAction(int Caller, AnsiString OwnHeadCode, AnsiString OtherHeadC
         }
         if(IntMinsLate == 0)
         {
-			PerfLog = "°æ’˝µ„‘À––°ø ";
+			PerfLog = "„ÄêÊ≠£ÁÇπËøêË°å„Äë";
         }
         else if(IntMinsLate == 1)
         {
-            PerfLog = "°æÕÌµ„1∑÷°ø ";
+            PerfLog = "„ÄêÊôöÁÇπ1ÂàÜ„Äë";
         }
         else if(IntMinsLate == -1)
         {
-            PerfLog = "°æ‘Áµ„1∑÷°ø ";
+            PerfLog = "„ÄêÊó©ÁÇπ1ÂàÜ„Äë";
         }
         else if(IntMinsLate > 1)
         {
-            PerfLog = "°æÕÌµ„" + AnsiString(IntMinsLate) + "∑÷°ø ";
+            PerfLog = "„ÄêÊôöÁÇπ" + AnsiString(IntMinsLate) + "ÂàÜ„Äë";
         }
         else if(IntMinsLate < -1)
         {
             int PosIntMinsLate = -IntMinsLate;
-            PerfLog = "°æ‘Áµ„" + AnsiString(PosIntMinsLate) + "∑÷°ø ";
+            PerfLog = "„ÄêÊó©ÁÇπ" + AnsiString(PosIntMinsLate) + "ÂàÜ„Äë";
         }
         if(LocationName.Pos('-') > 0)
         {
@@ -5396,7 +5396,7 @@ void TTrain::TrainHasFailed(int Caller)
     {
         LocName = Track->TrackElementAt(975, MidElement).ElementID;
     }
-    TrainController->StopTTClockMessage(81, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø°æŒª”⁄°ø" + LocName);
+    TrainController->StopTTClockMessage(81, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë„Äê‰Ωç‰∫é„Äë" + LocName);
     TrainFailed = true;
     TrainFailurePending = false;
     CallingOnFlag = false;  //added at v2.10.0
@@ -5437,7 +5437,7 @@ void TTrain::FrontTrainSplit(int Caller)
     {
         if(!ZeroPowerNoFrontSplitMessage)
         {
-            TrainController->StopTTClockMessage(82, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(82, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoFrontSplitMessage = true;
         Utilities->CallLogPop(2137);
@@ -5747,7 +5747,7 @@ void TTrain::RearTrainSplit(int Caller)
     {
         if(!ZeroPowerNoRearSplitMessage)
         {
-            TrainController->StopTTClockMessage(83, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(83, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoRearSplitMessage = true;
         Utilities->CallLogPop(2138);
@@ -6055,7 +6055,7 @@ void TTrain::FinishJoin(int Caller)
     {
 /*        if(!FailedTrainNoFinishJoinMessage)
         {
-            TrainController->StopTTClockMessage(84, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(84, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }*/
         FailedTrainNoFinishJoinMessage = true;
         Utilities->CallLogPop(2139);
@@ -6099,7 +6099,7 @@ void TTrain::JoinedBy(int Caller)
     {
         if(!ZeroPowerNoJoinedByMessage)
         {
-            TrainController->StopTTClockMessage(85, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(85, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoJoinedByMessage = true;
         Utilities->CallLogPop(2140);
@@ -6170,7 +6170,7 @@ void TTrain::ChangeTrainDirection(int Caller)
     {
         if(!ZeroPowerNoCDTMessage)
         {
-            TrainController->StopTTClockMessage(86, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(86, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoCDTMessage = true;
         Utilities->CallLogPop(2141);
@@ -6245,7 +6245,7 @@ void TTrain::NewTrainService(int Caller)
     {
         if(!ZeroPowerNoNewServiceMessage)
         {
-            TrainController->StopTTClockMessage(87, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(87, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoNewServiceMessage = true;
         Utilities->CallLogPop(2142);
@@ -6285,7 +6285,7 @@ void TTrain::RemainHere(int Caller)
     }
     if(!TerminatedMessageSent)
     {
-        Display->PerformanceLog(5, Utilities->Format96HHMMSS(TrainController->TTClockTime) + "  " + HeadCode + "°æ“—Ω· ¯‘À”™°ø" +
+        Display->PerformanceLog(5, Utilities->Format96HHMMSS(TrainController->TTClockTime) + "  " + HeadCode + "„ÄêÂ∑≤ÁªìÊùüËøêËê•„Äë" +
                                 ActionVectorEntryPtr->LocationName);
         LastActionTime = TrainController->TTClockTime;
         TerminatedMessageSent = true;
@@ -6544,7 +6544,7 @@ void TTrain::NewShuttleFromNonRepeatService(int Caller)
     {
         if(!ZeroPowerNoNewShuttleFromNonRepeatMessage)
         {
-            TrainController->StopTTClockMessage(88, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(88, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoNewShuttleFromNonRepeatMessage = true;
         Utilities->CallLogPop(2143);
@@ -6604,7 +6604,7 @@ void TTrain::RepeatShuttleOrRemainHere(int Caller)
     {
         if(!ZeroPowerNoRepeatShuttleMessage)
         {
-            TrainController->StopTTClockMessage(89, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(89, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoRepeatShuttleMessage = true;
         Utilities->CallLogPop(2144);
@@ -6647,7 +6647,7 @@ void TTrain::RepeatShuttleOrNewNonRepeatService(int Caller)
     {
         if(!ZeroPowerNoRepeatShuttleOrNewServiceMessage)
         {
-            TrainController->StopTTClockMessage(90, HeadCode + "°æ¡–≥µ∑¢…˙π ’œ°ø");
+            TrainController->StopTTClockMessage(90, HeadCode + "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë");
         }
         ZeroPowerNoRepeatShuttleOrNewServiceMessage = true;
         Utilities->CallLogPop(2145);
@@ -6894,46 +6894,46 @@ AnsiString TTrain::FloatingLabelNextString(int Caller, TActionVectorEntry *Ptr)
             if(!TrainAtLocation(0, LocationName) || (LocationName != Ptr->LocationName))
             // not arrived yet in tt mode
             {
-				RetStr = "" + Ptr->LocationName + "°æÕº∂®µΩµ„°ø" + Utilities->Format96HHMM(GetTrainTime(2, Ptr->ArrivalTime));
+				RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂà∞ÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(2, Ptr->ArrivalTime));
             }
             else
             {
-				RetStr = "" + Ptr->LocationName + "°æÕº∂®ø™µ„°ø" + Utilities->Format96HHMM(GetTrainTime(3, Ptr->DepartureTime));
+				RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(3, Ptr->DepartureTime));
             }
         }
         else // TrainMode == Signaller
         {
             if(!DepartureTimeSet) // not arrived yet
             {
-				RetStr = "" + Ptr->LocationName + "°æÕº∂®µΩµ„°ø" + Utilities->Format96HHMM(GetTrainTime(45, Ptr->ArrivalTime));
+				RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂà∞ÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(45, Ptr->ArrivalTime));
             }
             else
             {
-				RetStr = "" + Ptr->LocationName + "°æÕº∂®ø™µ„°ø" + Utilities->Format96HHMM(GetTrainTime(36, Ptr->DepartureTime));
+				RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(36, Ptr->DepartureTime));
             }
         }
     }
     else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime != TDateTime(-1)))
     {
-		RetStr = "" + Ptr->LocationName + "°æÕº∂®µΩµ„°ø" + Utilities->Format96HHMM(GetTrainTime(4, Ptr->ArrivalTime));
+		RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂà∞ÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(4, Ptr->ArrivalTime));
     }
     else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime == TDateTime(-1)))
     {
-		RetStr = "" + Ptr->LocationName + "°æÕº∂®ø™µ„°ø" + Utilities->Format96HHMM(GetTrainTime(5, Ptr->DepartureTime));
+		RetStr = "" + Ptr->LocationName + "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + Utilities->Format96HHMM(GetTrainTime(5, Ptr->DepartureTime));
     }
     else if(Ptr->FormatType == PassTime) //must come after 'else if((Ptr->FormatType == PassTime) && TreatPassAsTimeLocDeparture)'
     {
-        RetStr = "" + Utilities->Format96HHMM(GetTrainTime(31, Ptr->EventTime)) + "°æÕº∂®Õ®π˝°ø" + Ptr->LocationName;
+        RetStr = "" + Utilities->Format96HHMM(GetTrainTime(31, Ptr->EventTime)) + "„ÄêÂõæÂÆöÈÄöËøá„Äë" + Ptr->LocationName;
     }
     else if(Ptr->Command == "Fns")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(6, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(8, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(6, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(8, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
             "";
         RetStr = CheckNewServiceDepartureTime(0, Ptr, RepeatNumber, Ptr->LinkedTrainEntryPtr, RetStr); //if there is a next service this adds the new service departure time to RetStr
     }
     else if(Ptr->Command == "F-nshs")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(32, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + Ptr->NonRepeatingShuttleLinkHeadCode + "" + ""
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(32, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + Ptr->NonRepeatingShuttleLinkHeadCode + "" + ""
             ;
         RetStr = CheckNewServiceDepartureTime(1, Ptr, 0, Ptr->LinkedTrainEntryPtr, RetStr); //if there is a next service this adds the new service departure time to RetStr
         //note that use LinkedTrainEntryPtr and not NonRepeatingShuttleLinkEntryPtr because the forward link from the feeder is LinkedTrainEntryPtr.
@@ -6942,60 +6942,60 @@ AnsiString TTrain::FloatingLabelNextString(int Caller, TActionVectorEntry *Ptr)
     }
     else if((Ptr->Command == "Fns-sh") && (RepeatNumber < (TrainDataEntryPtr->NumberOfTrains - 1))) // not last repeat number
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(7, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(9, Ptr->OtherHeadCode, RepeatNumber+1, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(7, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(9, Ptr->OtherHeadCode, RepeatNumber+1, IncrementalDigits) + "" +
             "";
         // use RepeatNumber+1 as it's the repeat number of the NEXT shuttle service that is relevant
         RetStr = CheckNewServiceDepartureTime(2, Ptr, RepeatNumber + 1, Ptr->LinkedTrainEntryPtr, RetStr); //if there is a next service this adds the new service departure time to RetStr
     }
     else if((Ptr->Command == "Fns-sh") && (RepeatNumber >= (TrainDataEntryPtr->NumberOfTrains - 1))) // last repeat number
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(8, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + Ptr->NonRepeatingShuttleLinkHeadCode
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(8, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + Ptr->NonRepeatingShuttleLinkHeadCode
         + "" + "";
         RetStr = CheckNewServiceDepartureTime(3, Ptr, 0, Ptr->NonRepeatingShuttleLinkEntryPtr, RetStr); //if there is a next service this adds the new service departure time to RetStr
     }
     else if((Ptr->Command == "Frh-sh") && (RepeatNumber < (TrainDataEntryPtr->NumberOfTrains - 1))) // not last repeat number
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(9, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(10, Ptr->OtherHeadCode, RepeatNumber+1, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(9, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(10, Ptr->OtherHeadCode, RepeatNumber+1, IncrementalDigits) + "" +
             "";
         // use RepeatNumber+1 as it's the repeat number of the NEXT shuttle service that is relevant
         RetStr = CheckNewServiceDepartureTime(4, Ptr, RepeatNumber + 1, Ptr->LinkedTrainEntryPtr, RetStr); //if there is a next service this adds the new service departure time to RetStr
     }
     else if((Ptr->Command == "Frh-sh") && (RepeatNumber >= (TrainDataEntryPtr->NumberOfTrains - 1))) // last repeat number
     {
-		RetStr = "" + Ptr->LocationName + "°æΩ· ¯‘À”™°ø";
+		RetStr = "" + Ptr->LocationName + "„ÄêÁªìÊùüËøêËê•„Äë";
     }
     else if(Ptr->Command == "Frh")
     {
-		RetStr = "" + Ptr->LocationName + "°æΩ· ¯‘À”™°ø";
+		RetStr = "" + Ptr->LocationName + "„ÄêÁªìÊùüËøêËê•„Äë";
     }
     else if(Ptr->Command == "Fer")
     {
         AnsiString AllowedExits = "";
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(10, Ptr->EventTime)) + "°æ◊º±∏“∆Ωª°ø" + TrainController->GetExitLocationAndAt(1, Ptr->ExitList, AllowedExits) + AllowedExits;
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(10, Ptr->EventTime)) + "„ÄêÂáÜÂ§áÁßª‰∫§„Äë" + TrainController->GetExitLocationAndAt(1, Ptr->ExitList, AllowedExits) + AllowedExits;
     }
     else if(Ptr->Command == "Fjo")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(11, Ptr->EventTime)) + "°æ◊º±∏¡™π“°ø" + TrainController->GetRepeatHeadCode(11, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" + ""
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(11, Ptr->EventTime)) + "„ÄêÂáÜÂ§áËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode(11, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" + ""
             ;
     }
     else if(Ptr->Command == "jbo")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(12, Ptr->EventTime)) + "°æ◊º±∏¡™π“°ø" + TrainController->GetRepeatHeadCode(12, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(12, Ptr->EventTime)) + "„ÄêÂáÜÂ§áËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode(12, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
             "";
     }
     else if(Ptr->Command == "fsp")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(13, Ptr->EventTime)) + "°æ◊º±∏Ω‚±‡°ø" + TrainController->GetRepeatHeadCode(13, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(13, Ptr->EventTime)) + "„ÄêÂáÜÂ§áËß£Áºñ„Äë" + TrainController->GetRepeatHeadCode(13, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
             "";
     }
     else if(Ptr->Command == "rsp")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(14, Ptr->EventTime)) + "°æ◊º±∏Ω‚±‡°ø" + TrainController->GetRepeatHeadCode(14, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(14, Ptr->EventTime)) + "„ÄêÂáÜÂ§áËß£Áºñ„Äë" + TrainController->GetRepeatHeadCode(14, Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "" +
             "";
     }
     else if(Ptr->Command == "cdt")
     {
-		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(15, Ptr->EventTime)) + "°æ◊º±∏µ˜œÚ°ø";
+		RetStr = "" + Utilities->Format96HHMM(GetTrainTime(15, Ptr->EventTime)) + "„ÄêÂáÜÂ§áË∞ÉÂêë„Äë";
     }
     Utilities->CallLogPop(1124);
     return(RetStr);
@@ -7020,14 +7020,14 @@ AnsiString TTrain::CheckNewServiceDepartureTime(int Caller, TActionVectorEntry *
         if((AVI->Command == "fsp") || (AVI->Command == "rsp"))
         {
             EventTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(19, AVI->EventTime, RptNum, IncrementalMinutes));
-			RetStr += "°æΩ‚±‡°ø" + EventTime;
+			RetStr += "„ÄêËß£Áºñ„Äë" + EventTime;
             Utilities->CallLogPop(2234);
             return(RetStr);
         }
         if(AVI->Command == "jbo")
         {
             EventTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(20, AVI->EventTime, RptNum, IncrementalMinutes));
-			RetStr += "°æ¥˝π“°ø" + AVI->OtherHeadCode + "°æ‘§º∆°ø" + EventTime;
+			RetStr += "„ÄêÂæÖÊåÇ„Äë" + AVI->OtherHeadCode + "„ÄêÈ¢ÑËÆ°„Äë" + EventTime;
             Utilities->CallLogPop(2235);
             return(RetStr);
         }
@@ -7036,11 +7036,11 @@ AnsiString TTrain::CheckNewServiceDepartureTime(int Caller, TActionVectorEntry *
             DepTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(17, AVI->DepartureTime, RptNum, IncrementalMinutes));
             if(CDTFlag)
             {
-				RetStr += "°æÕº∂®ø™µ„°ø" + DepTime;
+				RetStr += "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + DepTime;
             }
             else
             {
-				RetStr += "°æÕº∂®ø™µ„°ø" + DepTime;
+				RetStr += "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + DepTime;
             }
             Utilities->CallLogPop(2236);
             return(RetStr);
@@ -7084,16 +7084,16 @@ AnsiString TTrain::FloatingTimetableString(int Caller, TActionVectorEntry *Ptr)
             {
                 if(TrainAtLocation(1, TrainLoc) && (TrainLoc == Ptr->LocationName) && (Ptr == EntryPtr)) //added '&& (Ptr == EntryPtr)' at v2.6.0 when allow multiple same location entries
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(33, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(33, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
                 }
                 else if(Ptr->ArrivalTime == Ptr->DepartureTime)
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(34, Ptr->ArrivalTime)) + "°æµΩ∑¢°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(34, Ptr->ArrivalTime)) + "„ÄêÂà∞Âèë„Äë" + Ptr->LocationName;
                 }
                 else
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(16, Ptr->ArrivalTime)) + "°æµΩµ„°ø" + Ptr->LocationName + '\n' +
-                        Utilities->Format96HHMM(GetTrainTime(17, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(16, Ptr->ArrivalTime)) + "„ÄêÂà∞ÁÇπ„Äë" + Ptr->LocationName + '\n' +
+                        Utilities->Format96HHMM(GetTrainTime(17, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
                     Count++; // because there are 2 entries
                 }
             }
@@ -7101,16 +7101,16 @@ AnsiString TTrain::FloatingTimetableString(int Caller, TActionVectorEntry *Ptr)
             {
                 if(DepartureTimeSet)
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(37, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(37, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
                 }
                 else if(Ptr->ArrivalTime == Ptr->DepartureTime)
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(38, Ptr->ArrivalTime)) + "°æµΩ∑¢°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(38, Ptr->ArrivalTime)) + "„ÄêÂà∞Âèë„Äë" + Ptr->LocationName;
                 }
                 else
                 {
-					PartStr = Utilities->Format96HHMM(GetTrainTime(39, Ptr->ArrivalTime)) + "°æµΩµ„°ø" + Ptr->LocationName + '\n' +
-                        Utilities->Format96HHMM(GetTrainTime(40, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+					PartStr = Utilities->Format96HHMM(GetTrainTime(39, Ptr->ArrivalTime)) + "„ÄêÂà∞ÁÇπ„Äë" + Ptr->LocationName + '\n' +
+                        Utilities->Format96HHMM(GetTrainTime(40, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
                     Count++; // because there are 2 entries
                 }
             }
@@ -7120,40 +7120,40 @@ AnsiString TTrain::FloatingTimetableString(int Caller, TActionVectorEntry *Ptr)
             AnsiString TrainLoc = "";
             if((TrainAtLocation(2, TrainLoc)) && (TrainLoc == Ptr->LocationName) && (Ptr == EntryPtr)) //added '&& (Ptr == EntryPtr)' at v2.6.0 when allow multiple same location entries
             {
-				PartStr = Utilities->Format96HHMM(GetTrainTime(41, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+				PartStr = Utilities->Format96HHMM(GetTrainTime(41, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
             }
             else if(Ptr->ArrivalTime == Ptr->DepartureTime)
             {
-				PartStr = Utilities->Format96HHMM(GetTrainTime(42, Ptr->ArrivalTime)) + "°æµΩ∑¢°ø" + Ptr->LocationName;
+				PartStr = Utilities->Format96HHMM(GetTrainTime(42, Ptr->ArrivalTime)) + "„ÄêÂà∞Âèë„Äë" + Ptr->LocationName;
             }
             else
             {
-				PartStr = Utilities->Format96HHMM(GetTrainTime(43, Ptr->ArrivalTime)) + "°æµΩµ„°ø" + Ptr->LocationName + '\n' +
-                    Utilities->Format96HHMM(GetTrainTime(44, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+				PartStr = Utilities->Format96HHMM(GetTrainTime(43, Ptr->ArrivalTime)) + "„ÄêÂà∞ÁÇπ„Äë" + Ptr->LocationName + '\n' +
+                    Utilities->Format96HHMM(GetTrainTime(44, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
                 Count++; // because there are 2 entries
             }
         }
         else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime != TDateTime(-1)))
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(18, Ptr->ArrivalTime)) + "°æµΩµ„°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetTrainTime(18, Ptr->ArrivalTime)) + "„ÄêÂà∞ÁÇπ„Äë" + Ptr->LocationName;
         }
         else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime == TDateTime(-1)))
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(19, Ptr->DepartureTime)) + "°æø™µ„°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetTrainTime(19, Ptr->DepartureTime)) + "„ÄêÂºÄÁÇπ„Äë" + Ptr->LocationName;
         }
         else if(Ptr->FormatType == PassTime) // new
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(30, Ptr->EventTime)) + "°æÕ®π˝°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetTrainTime(30, Ptr->EventTime)) + "„ÄêÈÄöËøá„Äë" + Ptr->LocationName;
         }
         else if(Ptr->Command == "Fns")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(20, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(15,
+			PartStr = Utilities->Format96HHMM(GetTrainTime(20, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(15,
                                                                                                                                              Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "";
             PartStr = CheckNewServiceDepartureTime(5, Ptr, RepeatNumber, Ptr->LinkedTrainEntryPtr, PartStr); //if there is a next service this adds the new service departure time to PartStr
         }
         else if(Ptr->Command == "F-nshs")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(35, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + Ptr->NonRepeatingShuttleLinkHeadCode + " "
+			PartStr = Utilities->Format96HHMM(GetTrainTime(35, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + Ptr->NonRepeatingShuttleLinkHeadCode + " "
                 ;
             PartStr = CheckNewServiceDepartureTime(6, Ptr, 0, Ptr->LinkedTrainEntryPtr, PartStr); //if there is a next service this adds the new service departure time to RetStr
             //note that use LinkedTrainEntryPtr and not NonRepeatingShuttleLinkEntryPtr because the forward link from the feeder is LinkedTrainEntryPtr.
@@ -7162,60 +7162,60 @@ AnsiString TTrain::FloatingTimetableString(int Caller, TActionVectorEntry *Ptr)
         }
         else if((Ptr->Command == "Fns-sh") && (RepeatNumber < (TrainDataEntryPtr->NumberOfTrains - 1))) // not the last repeat number
         {
-            PartStr = Utilities->Format96HHMM(GetTrainTime(21, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(16,
+            PartStr = Utilities->Format96HHMM(GetTrainTime(21, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(16,
                                                                                                                                              Ptr->OtherHeadCode, RepeatNumber + 1, IncrementalDigits) + "";
             // use RepeatNumber+1 because it's the repeat number of the NEXT shuttle service that is relevant
             PartStr = CheckNewServiceDepartureTime(7, Ptr, RepeatNumber + 1, Ptr->LinkedTrainEntryPtr, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Fns-sh") && (RepeatNumber >= (TrainDataEntryPtr->NumberOfTrains - 1))) // last repeat number
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(22, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + Ptr->NonRepeatingShuttleLinkHeadCode 
+			PartStr = Utilities->Format96HHMM(GetTrainTime(22, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + Ptr->NonRepeatingShuttleLinkHeadCode 
             + "";
             PartStr = CheckNewServiceDepartureTime(8, Ptr, 0, Ptr->NonRepeatingShuttleLinkEntryPtr, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Frh-sh") && (RepeatNumber < (TrainDataEntryPtr->NumberOfTrains - 1))) // not the last repeat number
         {
-            PartStr = Utilities->Format96HHMM(GetTrainTime(23, Ptr->EventTime)) + "°æ±‰∏¸≥µ¥Œ°ø" + TrainController->GetRepeatHeadCode(17,
+            PartStr = Utilities->Format96HHMM(GetTrainTime(23, Ptr->EventTime)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" + TrainController->GetRepeatHeadCode(17,
                                                                                                                                              Ptr->OtherHeadCode, RepeatNumber + 1, IncrementalDigits) + "";
             // use RepeatNumber+1 because it's the repeat number of the NEXT shuttle service that is relevant
             PartStr = CheckNewServiceDepartureTime(9, Ptr, RepeatNumber + 1, Ptr->LinkedTrainEntryPtr, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Frh-sh") && (RepeatNumber >= (TrainDataEntryPtr->NumberOfTrains - 1))) // last repeat number
         {
-			PartStr = "°æΩ· ¯‘À”™°ø" + Ptr->LocationName;
+			PartStr = "„ÄêÁªìÊùüËøêËê•„Äë" + Ptr->LocationName;
         }
         else if(Ptr->Command == "Frh")
         {
-			PartStr = "°æΩ· ¯‘À”™°ø" + Ptr->LocationName;
+			PartStr = "„ÄêÁªìÊùüËøêËê•„Äë" + Ptr->LocationName;
         }
         else if(Ptr->Command == "Fer")
         {
             AnsiString AllowedExits = "";
-            PartStr = Utilities->Format96HHMM(GetTrainTime(24, Ptr->EventTime)) + "°æ“∆ΩªµΩ°ø" + TrainController->GetExitLocationAndAt(2, Ptr->ExitList, AllowedExits) + AllowedExits;
+            PartStr = Utilities->Format96HHMM(GetTrainTime(24, Ptr->EventTime)) + "„ÄêÁßª‰∫§Âà∞„Äë" + TrainController->GetExitLocationAndAt(2, Ptr->ExitList, AllowedExits) + AllowedExits;
         }
         else if(Ptr->Command == "Fjo")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(25, Ptr->EventTime)) + "°æ¡™π“°ø" + TrainController->GetRepeatHeadCode(18, Ptr->OtherHeadCode,
+			PartStr = Utilities->Format96HHMM(GetTrainTime(25, Ptr->EventTime)) + "„ÄêËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode(18, Ptr->OtherHeadCode,
                                                                                                                                  RepeatNumber, IncrementalDigits) + "";
         }
         else if(Ptr->Command == "jbo")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(26, Ptr->EventTime)) + "°æ¡™π“°ø" + TrainController->GetRepeatHeadCode(19, Ptr->OtherHeadCode,
+			PartStr = Utilities->Format96HHMM(GetTrainTime(26, Ptr->EventTime)) + "„ÄêËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode(19, Ptr->OtherHeadCode,
                                                                                                                                       RepeatNumber, IncrementalDigits) + "";
         }
         else if(Ptr->Command == "fsp")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(27, Ptr->EventTime)) + "°æΩ‚±‡°ø" + TrainController->GetRepeatHeadCode(20,
+			PartStr = Utilities->Format96HHMM(GetTrainTime(27, Ptr->EventTime)) + "„ÄêËß£Áºñ„Äë" + TrainController->GetRepeatHeadCode(20,
                                                                                                                                            Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "";
         }
         else if(Ptr->Command == "rsp")
         {
-			PartStr = Utilities->Format96HHMM(GetTrainTime(28, Ptr->EventTime)) + "°æΩ‚±‡°ø" + TrainController->GetRepeatHeadCode(21,
+			PartStr = Utilities->Format96HHMM(GetTrainTime(28, Ptr->EventTime)) + "„ÄêËß£Áºñ„Äë" + TrainController->GetRepeatHeadCode(21,
                                                                                                                                           Ptr->OtherHeadCode, RepeatNumber, IncrementalDigits) + "";
         }
         else if(Ptr->Command == "cdt")
         {
-            PartStr = Utilities->Format96HHMM(GetTrainTime(29, Ptr->EventTime)) + "°æµ˜œÚ°ø" + Ptr->LocationName;
+            PartStr = Utilities->Format96HHMM(GetTrainTime(29, Ptr->EventTime)) + "„ÄêË∞ÉÂêë„Äë" + Ptr->LocationName;
         }
         if(RetStr != "")
         {
@@ -7236,11 +7236,11 @@ AnsiString TTrain::FloatingTimetableString(int Caller, TActionVectorEntry *Ptr)
     {
         if(TrainMode == Timetable)
         {
-            RetStr = "°æ“—Ω· ¯‘À”™°ø";
+            RetStr = "„ÄêÂ∑≤ÁªìÊùüËøêËê•„Äë";
         }
         else
         {
-            RetStr = "°æŒﬁ––≥µº∆ªÆ°ø";
+            RetStr = "„ÄêÊó†Ë°åËΩ¶ËÆ°Âàí„Äë";
         }
     }
     Utilities->CallLogPop(1125);
@@ -8949,11 +8949,11 @@ void TTrainController::Operate(int Caller)
                 {
                     if(TE.ActiveTrackElementName != "")
                     {
-						Loc = TE.ActiveTrackElementName + "°æŒª”⁄°ø" + TE.ElementID;
+						Loc = TE.ActiveTrackElementName + "„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
                     }
                     else
                     {
-						Loc ="°æŒª”⁄°ø" + TE.ElementID;
+						Loc ="„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
                     }
                 }
                 TActionVectorEntry *AVEntryPtr = Train.ActionVectorEntryPtr;
@@ -9241,11 +9241,11 @@ bool TTrainController::AddTrain(int Caller, int RearPosition, int FrontPosition,
         AnsiString Loc = "";
         if(TE.ActiveTrackElementName != "")
         {
-			Loc = TE.ActiveTrackElementName + "°æŒª”⁄°ø" + TE.ElementID;
+			Loc = TE.ActiveTrackElementName + "„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
         }
         else
         {
-			Loc = "°æŒª”⁄°ø" + TE.ElementID;
+			Loc = "„Äê‰Ωç‰∫é„Äë" + TE.ElementID;
         }
         if(TE.TrackType == Continuation)
         {
@@ -9515,36 +9515,36 @@ AnsiString TTrainController::ContinuationEntryFloatingTTString(int Caller, TTrai
         {
             if(Ptr->ArrivalTime == Ptr->DepartureTime)
             {
-				PartStr = Utilities->Format96HHMM(GetControllerTrainTime(0, Ptr->ArrivalTime, RepNum, IncMins)) + "°æÕº∂®µΩ∑¢°ø" + Ptr->LocationName;
+				PartStr = Utilities->Format96HHMM(GetControllerTrainTime(0, Ptr->ArrivalTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÂà∞Âèë„Äë" + Ptr->LocationName;
             }
             else
             {
-				PartStr = Utilities->Format96HHMM(GetControllerTrainTime(1, Ptr->ArrivalTime, RepNum, IncMins)) + "°æÕº∂®µΩµ„°ø" + Ptr->LocationName + '\n' +
-                    Utilities->Format96HHMM(GetControllerTrainTime(2, Ptr->DepartureTime, RepNum, IncMins)) + "°æÕº∂®ø™µ„°ø" + Ptr->LocationName;
+				PartStr = Utilities->Format96HHMM(GetControllerTrainTime(1, Ptr->ArrivalTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÂà∞ÁÇπ„Äë" + Ptr->LocationName + '\n' +
+                    Utilities->Format96HHMM(GetControllerTrainTime(2, Ptr->DepartureTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + Ptr->LocationName;
                 Count++; // because there are 2 entries
             }
         }
         else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime != TDateTime(-1)))
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(3, Ptr->ArrivalTime, RepNum, IncMins)) + "°æÕº∂®µΩµ„°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(3, Ptr->ArrivalTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÂà∞ÁÇπ„Äë" + Ptr->LocationName;
         }
         else if((Ptr->FormatType == TimeLoc) && (Ptr->ArrivalTime == TDateTime(-1)))
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(4, Ptr->DepartureTime, RepNum, IncMins)) + "°æÕº∂®ø™µ„°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(4, Ptr->DepartureTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + Ptr->LocationName;
         }
         else if(Ptr->FormatType == PassTime) // new
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(5, Ptr->EventTime, RepNum, IncMins)) + "°æÕº∂®Õ®π˝°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(5, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂõæÂÆöÈÄöËøá„Äë" + Ptr->LocationName;
         }
         else if(Ptr->Command == "Fns")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(6, Ptr->EventTime, RepNum, IncMins)) + "°æ±‰∏¸≥µ¥Œ°ø" +
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(6, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" +
                 TrainController->GetRepeatHeadCode(46, Ptr->OtherHeadCode, RepNum, IncDig) + "";
             PartStr = ControllerCheckNewServiceDepartureTime(0, Ptr, RepNum, TTDEPtr, Ptr->LinkedTrainEntryPtr, IncMins, PartStr); //if there is a next service this adds the new service departure time to PartStr
         }
         else if(Ptr->Command == "F-nshs")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(7, Ptr->EventTime, RepNum, IncMins)) + "°æ±‰∏¸≥µ¥Œ°ø" +
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(7, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" +
                 Ptr->NonRepeatingShuttleLinkHeadCode + "";
             PartStr = ControllerCheckNewServiceDepartureTime(1, Ptr, 0, TTDEPtr, Ptr->LinkedTrainEntryPtr, IncMins, PartStr); //if there is a next service this adds the new service departure time to RetStr
             //note that use LinkedTrainEntryPtr and not NonRepeatingShuttleLinkEntryPtr because the forward link from the feeder is LinkedTrainEntryPtr.
@@ -9554,61 +9554,61 @@ AnsiString TTrainController::ContinuationEntryFloatingTTString(int Caller, TTrai
 //Since this is a new continuation entry service it can't be Fns-sh or Frh-sh but leave these in for consistency with TTrain::FloatingTimetableString
         else if((Ptr->Command == "Fns-sh") && (RepNum < (TTDEPtr->NumberOfTrains - 1))) // not the last repeat number
         {
-            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(8, Ptr->EventTime, RepNum, IncMins)) + "°æ±‰∏¸≥µ¥Œ°ø" +
+            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(8, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" +
                 TrainController->GetRepeatHeadCode(47, Ptr->OtherHeadCode, RepNum + 1, IncDig) + "";
             // use RepNum+1 because it's the repeat number of the NEXT shuttle service that is relevant
             PartStr = ControllerCheckNewServiceDepartureTime(2, Ptr, RepNum + 1, TTDEPtr, Ptr->LinkedTrainEntryPtr, IncMins, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Fns-sh") && (RepNum >= (TTDEPtr->NumberOfTrains - 1))) // last repeat number
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(9, Ptr->EventTime, RepNum, IncMins)) + "°æ±‰∏¸≥µ¥Œ°ø" +
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(9, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" +
                 Ptr->NonRepeatingShuttleLinkHeadCode, + "";
             PartStr = ControllerCheckNewServiceDepartureTime(3, Ptr, 0, TTDEPtr, Ptr->NonRepeatingShuttleLinkEntryPtr, IncMins, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Frh-sh") && (RepNum < (TTDEPtr->NumberOfTrains - 1))) // not the last repeat number
         {
-            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(10, Ptr->EventTime, RepNum, IncMins)) + "°æ±‰∏¸≥µ¥Œ°ø" +
+            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(10, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂèòÊõ¥ËΩ¶Ê¨°„Äë" +
                 TrainController->GetRepeatHeadCode(48, Ptr->OtherHeadCode, RepNum + 1, IncDig) + "";
             // use RepNum+1 because it's the repeat number of the NEXT shuttle service that is relevant
             PartStr = ControllerCheckNewServiceDepartureTime(4, Ptr, RepNum + 1, TTDEPtr, Ptr->LinkedTrainEntryPtr, IncMins, PartStr); //if there is a next service this adds the new service departure time to RetStr
         }
         else if((Ptr->Command == "Frh-sh") && (RepNum >= (TTDEPtr->NumberOfTrains - 1))) // last repeat number
         {
-			PartStr = "" + Ptr->LocationName + "°æ‘À”™Ω· ¯°ø";
+			PartStr = "" + Ptr->LocationName + "„ÄêËøêËê•ÁªìÊùü„Äë";
         }
         else if(Ptr->Command == "Frh")
         {
-			PartStr = "" + Ptr->LocationName + "°æ‘À”™Ω· ¯°ø";
+			PartStr = "" + Ptr->LocationName + "„ÄêËøêËê•ÁªìÊùü„Äë";
         }
         else if(Ptr->Command == "Fer")
         {
             AnsiString AllowedExits;
-            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(11, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏“∆Ωª°ø" +
+            PartStr = Utilities->Format96HHMM(GetControllerTrainTime(11, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áÁßª‰∫§„Äë" +
                 TrainController->GetExitLocationAndAt(3, Ptr->ExitList, AllowedExits) + AllowedExits;
         }
         else if(Ptr->Command == "Fjo")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(12, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏¡™π“°ø" + TrainController->GetRepeatHeadCode(49,
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(12, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode(49,
                                                                                                                                                             Ptr->OtherHeadCode, RepNum, IncDig) + "";
         }
         else if(Ptr->Command == "jbo")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(13, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏¡™π“°ø" + TrainController->GetRepeatHeadCode
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(13, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áËÅîÊåÇ„Äë" + TrainController->GetRepeatHeadCode
                     (50, Ptr->OtherHeadCode, RepNum, IncDig) + "";
         }
         else if(Ptr->Command == "fsp")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(14, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏Ω‚±‡°ø" +
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(14, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áËß£Áºñ„Äë" +
                 TrainController->GetRepeatHeadCode(51, Ptr->OtherHeadCode, RepNum, IncDig) + "";
         }
         else if(Ptr->Command == "rsp")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(15, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏Ω‚±‡°ø" +
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(15, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áËß£Áºñ„Äë" +
                 TrainController->GetRepeatHeadCode(52, Ptr->OtherHeadCode, RepNum, IncDig) + "";
         }
         else if(Ptr->Command == "cdt")
         {
-			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(16, Ptr->EventTime, RepNum, IncMins)) + "°æ◊º±∏µ˜œÚ°ø" + Ptr->LocationName;
+			PartStr = Utilities->Format96HHMM(GetControllerTrainTime(16, Ptr->EventTime, RepNum, IncMins)) + "„ÄêÂáÜÂ§áË∞ÉÂêë„Äë" + Ptr->LocationName;
         }
         if(RetStr != "")
         {
@@ -9647,14 +9647,14 @@ AnsiString TTrainController::ControllerCheckNewServiceDepartureTime(int Caller, 
         if((AVI->Command == "fsp") || (AVI->Command == "rsp"))
         {
             EventTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(21, AVI->EventTime, RptNum, IncrementalMinutes));
-			RetStr += "°æΩ‚±‡°ø" + EventTime;
+			RetStr += "„ÄêËß£Áºñ„Äë" + EventTime;
             Utilities->CallLogPop(2237);
             return(RetStr);
         }
         if(AVI->Command == "jbo")
         {
             EventTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(22, AVI->EventTime, RptNum, IncrementalMinutes));
-			RetStr += "°æ¥˝π“°ø" + AVI->OtherHeadCode + "°æ‘§º∆°ø" + EventTime;
+			RetStr += "„ÄêÂæÖÊåÇ„Äë" + AVI->OtherHeadCode + "„ÄêÈ¢ÑËÆ°„Äë" + EventTime;
             Utilities->CallLogPop(2238);
             return(RetStr);
         }
@@ -9663,11 +9663,11 @@ AnsiString TTrainController::ControllerCheckNewServiceDepartureTime(int Caller, 
             DepTime = Utilities->Format96HHMM(TrainController->GetControllerTrainTime(23, AVI->DepartureTime, RptNum, IncrementalMinutes));
             if(CDTFlag)
             {
-				RetStr += "°æÕº∂®ø™µ„°ø" + DepTime;
+				RetStr += "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + DepTime;
             }
             else
             {
-				RetStr += "°æÕº∂®ø™µ„°ø" + DepTime;
+				RetStr += "„ÄêÂõæÂÆöÂºÄÁÇπ„Äë" + DepTime;
             }
             Utilities->CallLogPop(2239);
             return(RetStr);
@@ -9850,7 +9850,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
         {
             // may still have eof even if read a line (no CRLF at end), and
             // if so need to process it
-			TimetableMessage(GiveMessages, "°æ ±øÃ◊‘ºÏ°ø≤ª∫œ∏Ò£°");
+			TimetableMessage(GiveMessages, "„ÄêÊó∂ÂàªËá™Ê£Ä„Äë‰∏çÂêàÊ†ºÔºÅ");
             TTBLFile.close();
             delete[] TrainTimetableString;
             Utilities->CallLogPop(1611);
@@ -9868,7 +9868,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
             {
                 // may still have eof even if read a line (no CRLF at end), and
                 // if so need to process it
-                TimetableMessage(GiveMessages, "«Î…Ë÷√°æÃÏ¥∞Ω· ¯°ø ±º‰£°");
+                TimetableMessage(GiveMessages, "ËØ∑ËÆæÁΩÆ„ÄêÂ§©Á™óÁªìÊùü„ÄëÊó∂Èó¥ÔºÅ");
                 TTBLFile.close();
                 delete[] TrainTimetableString;
                 Utilities->CallLogPop(772);
@@ -9914,7 +9914,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
             if(EndOfFile && (Count < 2))
             // Timetable must contain at least two relevant lines, one for start time and at least one train
             {
-				TimetableMessage(GiveMessages, "±ÿ–Î±‡÷∆÷¡…Ÿ“ª∏ˆ≥µ¥ŒÃıƒø£°");
+				TimetableMessage(GiveMessages, "ÂøÖÈ°ªÁºñÂà∂Ëá≥Â∞ë‰∏Ä‰∏™ËΩ¶Ê¨°Êù°ÁõÆÔºÅ");
                 TTBLFile.close();
                 delete[] TrainTimetableString;
                 Utilities->CallLogPop(771);
@@ -10161,7 +10161,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
             {
                 SubStringLength = OneLine.Length();
             }
-			TimetableMessage(GiveMessages, "«Î∞¥∏Ò Ω±‡÷∆ÕÍ’˚ ±øÃ±Ì£°°æ" + OneLine.SubString(1, SubStringLength) + "°ø");
+			TimetableMessage(GiveMessages, "ËØ∑ÊåâÊ†ºÂºèÁºñÂà∂ÂÆåÊï¥Êó∂ÂàªË°®ÔºÅ„Äê" + OneLine.SubString(1, SubStringLength) + "„Äë");
             Utilities->CallLogPop(766);
             return(false);
         }
@@ -10229,8 +10229,8 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                     SubStringLength = OneLine.Length();
                 }
                 TimetableMessage(GiveMessages,
-                                 "«Î∞¥À≥–Ú±‡÷∆ÕÍ’˚ ±øÃ±Ì£°°æ" +
-                                 OneLine.SubString(1, SubStringLength) + "°ø");
+                                 "ËØ∑ÊåâÈ°∫Â∫èÁºñÂà∂ÂÆåÊï¥Êó∂ÂàªË°®ÔºÅ„Äê" +
+                                 OneLine.SubString(1, SubStringLength) + "„Äë");
                 Utilities->CallLogPop(783);
                 return(false);
             }
@@ -10269,7 +10269,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 if(!SplitEntry(0, OneEntry, GiveMessages, CheckLocationsExistInRailway, First, Second, Third, Fourth, RearStartOrRepeatMins,
                                FrontStartOrRepeatDigits, FormatType, LocationType, SequenceType, ShuttleLinkType, ExitList, Warning))
                 {
-                    TimetableMessage(GiveMessages, "«ÎºÏ≤È÷∏¡Ó£°°æ" + OneEntry + "°ø");
+                    TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•Êåá‰ª§ÔºÅ„Äê" + OneEntry + "„Äë");
                     Utilities->CallLogPop(756);
                     return(false);
                 }
@@ -10313,8 +10313,8 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                         if((HeadCode == "") || (Description == "") || (MaxRunningSpeed == 0) || (Mass == 0) || (MaxBrakeRate == 0)) // ||
                         // (PowerAtRail == 0)) allowed 0 for power at v2.4.0
                         {
-                            TimetableMessage(GiveMessages, "ºº ı≤Œ ˝≤ªÕÍ’˚°æ" +
-                                             OneEntry + "°ø");
+                            TimetableMessage(GiveMessages, "ÊäÄÊúØÂèÇÊï∞‰∏çÂÆåÊï¥„Äê" +
+                                             OneEntry + "„Äë");
                             Utilities->CallLogPop(1783);
                             return(false);
                         }
@@ -10333,7 +10333,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                         {
                             TimetableMessage(GiveMessages,
                                              "" +
-                                             TrainInfoStr + "°æºº ı≤Œ ˝°øŒﬁ–Ë÷ÿ∏¥√Ë ˆ£°");
+                                             TrainInfoStr + "„ÄêÊäÄÊúØÂèÇÊï∞„ÄëÊó†ÈúÄÈáçÂ§çÊèèËø∞ÔºÅ");
                             Utilities->CallLogPop(843);
                             return(false);
                         }
@@ -10494,13 +10494,13 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                     if(!SplitEntry(1, OneEntry, GiveMessages, CheckLocationsExistInRailway, First, Second, Third, Fourth, RearStartOrRepeatMins,
                                    FrontStartOrRepeatDigits, FormatType, LocationType, SequenceType, ShuttleLinkType, ExitList, Warning))
                     {
-                        TimetableMessage(GiveMessages, "«ÎºÏ≤È÷∏¡Ó£°°æ" + OneEntry + "°ø");
+                        TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•Êåá‰ª§ÔºÅ„Äê" + OneEntry + "„Äë");
                         Utilities->CallLogPop(757);
                         return(false);
                     }
                     if(SequenceType != Finish)
                     {
-                        TimetableMessage(GiveMessages, "«Î∞¥∏Ò Ω±‡÷∆ÕÍ’˚ ±øÃ±Ì£°°æ" + OneEntry + "°ø");
+                        TimetableMessage(GiveMessages, "ËØ∑ÊåâÊ†ºÂºèÁºñÂà∂ÂÆåÊï¥Êó∂ÂàªË°®ÔºÅ„Äê" + OneEntry + "„Äë");
                         Utilities->CallLogPop(785);
                         return(false);
                     }
@@ -11025,10 +11025,10 @@ bool TTrainController::CheckLocationValidity(int Caller, AnsiString LocStr, bool
     {
         if(!Track->TimetabledLocationNameAllocated(3, LocStr))
         {
-			TimetableMessage(GiveMessages, "«ÎºÏ≤È°æ" + LocStr +
+			TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + LocStr +
                              "" +
                              "" +
-                             "°ø÷∏¡Ó∏Ò Ω ªÚ Œª÷√√˚≥∆£°");
+                             "„ÄëÊåá‰ª§Ê†ºÂºè Êàñ ‰ΩçÁΩÆÂêçÁß∞ÔºÅ");
             Utilities->CallLogPop(1357);
             return(false);
         }
@@ -11048,8 +11048,8 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
                                  HeadCode);
     if((HeadCode.Length() < 4) || (HeadCode.Length() > 8))
     {
-        TimetableMessage(GiveMessages, "°æ" + HeadCode +
-                         "°ø≥µ¥Œ÷¡…Ÿ∞¸∫¨°æ4 ~ 8°ø∏ˆ◊÷∑˚£°");
+        TimetableMessage(GiveMessages, "„Äê" + HeadCode +
+                         "„ÄëËΩ¶Ê¨°Ëá≥Â∞ëÂåÖÂê´„Äê4 ~ 8„Äë‰∏™Â≠óÁ¨¶ÔºÅ");
         Utilities->CallLogPop(1359);
         return(false);
     }
@@ -11058,7 +11058,7 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
     {
         if((HeadCode[x] < ' ') || (HeadCode[x] > '~'))
         {
-            TimetableMessage(GiveMessages, "°æ" + HeadCode + "°ø”–◊÷∑˚≥¨≥ˆASCII∑∂Œß£°");
+            TimetableMessage(GiveMessages, "„Äê" + HeadCode + "„ÄëÊúâÂ≠óÁ¨¶Ë∂ÖÂá∫ASCIIËåÉÂõ¥ÔºÅ");
             Utilities->CallLogPop(1895);
             return(false);
         }
@@ -11069,7 +11069,7 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
         if(((HeadCode[HeadCode.Length() - x] < 'A') || (HeadCode[HeadCode.Length() - x] > 'Z')) && ((HeadCode[HeadCode.Length() - x] < 'a') ||
                                                                                                     (HeadCode[HeadCode.Length() - x] > 'z')) && ((HeadCode[HeadCode.Length() - x] < '0') || (HeadCode[HeadCode.Length() - x] > '9')))
         {
-            TimetableMessage(GiveMessages, "°æ" + HeadCode + "°ø÷ªƒ‹ π”√◊÷ƒ∏∫Õ ˝◊÷£°");
+            TimetableMessage(GiveMessages, "„Äê" + HeadCode + "„ÄëÂè™ËÉΩ‰ΩøÁî®Â≠óÊØçÂíåÊï∞Â≠óÔºÅ");
             Utilities->CallLogPop(1790);
             return(false);
         }
@@ -11098,7 +11098,7 @@ bool TTrainController::CheckAndPopulateListOfIDs(int Caller, AnsiString IDSet, T
         char C = IDSet[x];
         if(((C < '0') || (C > '9')) && (C != ' ') && (C != 'N') && (C != '-'))
         {
-            TimetableMessage(GiveMessages, "«ÎºÏ≤È°æFer £ª" + IDSet + "°ø◊¯±Í ªÚ ∏Ò Ω£°");
+            TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„ÄêFer Ôºõ" + IDSet + "„ÄëÂùêÊ†á Êàñ Ê†ºÂºèÔºÅ");
             Utilities->CallLogPop(1522);
             return(false);
         }
@@ -11183,9 +11183,9 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     }
     if((SemiColonCount != 6) && (SemiColonCount != 7) && (SemiColonCount != 1) && (SemiColonCount != 0))
     {
-        TimetableMessage(GiveMessages, "«ÎºÏ≤È∏Ò Ω£°°æ" + TrainInfoStr +
-                         "°ø" +
-                         "≥µ¥Œ £ª∑ΩœÚ £ª≥µÀŸ £ªœﬁÀŸ £ª◊‹÷ÿ £ª÷∆∂Ø £ª«£“˝");
+        TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•Ê†ºÂºèÔºÅ„Äê" + TrainInfoStr +
+                         "„Äë" +
+                         "ËΩ¶Ê¨° ÔºõÊñπÂêë ÔºõËΩ¶ÈÄü ÔºõÈôêÈÄü ÔºõÊÄªÈáç ÔºõÂà∂Âä® ÔºõÁâµÂºï");
         Utilities->CallLogPop(880);
         return(false);
     }
@@ -11212,13 +11212,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         }
         if(Description == "")
         {
-			TimetableMessage(GiveMessages, "∑ΩœÚ÷¡…Ÿ∞¸∫¨1∏ˆ◊÷∑˚°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÊñπÂêëËá≥Â∞ëÂåÖÂê´1‰∏™Â≠óÁ¨¶„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(884);
             return(false);
         }
         if(Description.Length() > 60)
         {
-			TimetableMessage(GiveMessages, "∑ΩœÚ≤ªƒ‹≥¨π˝60∏ˆ◊÷∑˚°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÊñπÂêë‰∏çËÉΩË∂ÖËøá60‰∏™Â≠óÁ¨¶„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(1157);
             return(false);
         }
@@ -11226,7 +11226,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         {
             if((Description[x] < ' ') || (Description[x] > '~'))
             {
-				TimetableMessage(GiveMessages, "”–◊÷∑˚≥¨≥ˆASCII∑∂Œß°æ" + TrainInfoStr + "°ø");
+				TimetableMessage(GiveMessages, "ÊúâÂ≠óÁ¨¶Ë∂ÖÂá∫ASCIIËåÉÂõ¥„Äê" + TrainInfoStr + "„Äë");
                 Utilities->CallLogPop(885);
                 return(false);
             }
@@ -11248,13 +11248,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(Description == "")
     {
-		TimetableMessage(GiveMessages, "∑ΩœÚ÷¡…Ÿ∞¸∫¨1∏ˆ◊÷∑˚°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ÊñπÂêëËá≥Â∞ëÂåÖÂê´1‰∏™Â≠óÁ¨¶„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(888);
         return(false);
     }
     if(Description.Length() > 60)
     {
-		TimetableMessage(GiveMessages, "∑ΩœÚ≤ªƒ‹≥¨π˝60∏ˆ◊÷∑˚°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ÊñπÂêë‰∏çËÉΩË∂ÖËøá60‰∏™Â≠óÁ¨¶„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(1158);
         return(false);
     }
@@ -11262,7 +11262,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((Description[x] < ' ') || (Description[x] > 126))
         {
-			TimetableMessage(GiveMessages, "”–◊÷∑˚≥¨≥ˆASCII∑∂Œß°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÊúâÂ≠óÁ¨¶Ë∂ÖÂá∫ASCIIËåÉÂõ¥„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(889);
             return(false);
         }
@@ -11273,7 +11273,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(StartSpeedStr == "")
     {
-		TimetableMessage(GiveMessages, "≥µÀŸ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ËΩ¶ÈÄüÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(890);
         return(false);
     }
@@ -11281,7 +11281,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((StartSpeedStr[x] < '0') || (StartSpeedStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "≥µÀŸ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ËΩ¶ÈÄüÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(891);
             return(false);
         }
@@ -11292,7 +11292,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         StartSpeed = TTrain::MaximumSpeedLimit;
         if(!SSHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "ÀŸ∂»…œœﬁ400km/h°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÈÄüÂ∫¶‰∏äÈôê400km/h„Äê" + TrainInfoStr + "„Äë");
             SSHigh = true;
         }
     }
@@ -11302,7 +11302,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MaxRunningSpeedStr == "")
     {
-		TimetableMessage(GiveMessages, "œﬁÀŸ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ÈôêÈÄüÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(892);
         return(false);
     }
@@ -11310,7 +11310,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MaxRunningSpeedStr[x] < '0') || (MaxRunningSpeedStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "œﬁÀŸ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÈôêÈÄüÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(893);
             return(false);
         }
@@ -11321,7 +11321,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxRunningSpeed = TTrain::MaximumSpeedLimit;
         if(!MRSHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "ÀŸ∂»…œœﬁ400km/h°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÈÄüÂ∫¶‰∏äÈôê400km/h„Äê" + TrainInfoStr + "„Äë");
             MRSHigh = true;
         }
     }
@@ -11331,7 +11331,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxRunningSpeed = 10;
         if(!MRSLow) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "ÀŸ∂»œ¬œﬁ10km/h°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÈÄüÂ∫¶‰∏ãÈôê10km/h„Äê" + TrainInfoStr + "„Äë");
             MRSLow = true;
         }
     }
@@ -11341,7 +11341,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MassStr == "")
     {
-		TimetableMessage(GiveMessages, "º∆÷ÿ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ËÆ°ÈáçÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(895);
         return(false);
     }
@@ -11349,7 +11349,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MassStr[x] < '0') || (MassStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "º∆÷ÿ±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ËÆ°ÈáçÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(896);
             return(false);
         }
@@ -11360,13 +11360,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         Mass = TTrain::MaximumMassLimit;
         if(!MassHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "º∆÷ÿ…œœﬁ10000t°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ËÆ°Èáç‰∏äÈôê10000t„Äê" + TrainInfoStr + "„Äë");
             MassHigh = true;
         }
     }
     if(Mass == 0)
     {
-		TimetableMessage(GiveMessages, "º∆÷ÿœ¬œﬁ1t°æ'" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ËÆ°Èáç‰∏ãÈôê1t„Äê'" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(897);
         return(false);
     }
@@ -11376,7 +11376,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MaxBrakeForceStr == "")
     {
-		TimetableMessage(GiveMessages, "÷∆∂Ø±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "Âà∂Âä®ÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(898);
         return(false);
     }
@@ -11384,7 +11384,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MaxBrakeForceStr[x] != '.') && ((MaxBrakeForceStr[x] < '0') || (MaxBrakeForceStr[x] > '9')))
         {
-			TimetableMessage(GiveMessages, "÷∆∂Ø±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "Âà∂Âä®ÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(899);
             return(false);
         }
@@ -11397,7 +11397,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxBrakeForce = Mass;
         if(!BFHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "÷∆∂Ø<=º∆÷ÿ°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "Âà∂Âä®<=ËÆ°Èáç„Äê" + TrainInfoStr + "„Äë");
             BFHigh = true;
         }
     }
@@ -11406,7 +11406,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxBrakeForce = Mass * 0.01;
         if(!BFLow) // added at v2.4.0
         {
-            TimetableMessage(GiveMessages, "÷∆∂Ø>=º∆÷ÿx1%°æ" + TrainInfoStr + "°ø");
+            TimetableMessage(GiveMessages, "Âà∂Âä®>=ËÆ°Èáçx1%„Äê" + TrainInfoStr + "„Äë");
             BFLow = true;
         }
     }
@@ -11429,7 +11429,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     // deal with GrossPower
     if(GrossPowerStr == "")
     {
-		TimetableMessage(GiveMessages, "«£“˝±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+		TimetableMessage(GiveMessages, "ÁâµÂºïÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
         Utilities->CallLogPop(901);
         return(false);
     }
@@ -11437,7 +11437,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((GrossPowerStr[x] < '0') || (GrossPowerStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "«£“˝±ÿ–ÎŒ™◊‘»ª ˝°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÁâµÂºïÂøÖÈ°ª‰∏∫Ëá™ÁÑ∂Êï∞„Äê" + TrainInfoStr + "„Äë");
             Utilities->CallLogPop(902);
             return(false);
         }
@@ -11450,7 +11450,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         GrossPower = TTrain::MaximumPowerLimit;
         if(!PwrHigh)
         {
-			TimetableMessage(GiveMessages, "«£“˝…œœﬁ100000kW°æ" + TrainInfoStr + "°ø");
+			TimetableMessage(GiveMessages, "ÁâµÂºï‰∏äÈôê100000kW„Äê" + TrainInfoStr + "„Äë");
             PwrHigh = true;
         }
     }
@@ -11825,7 +11825,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     Utilities->CallLog.push_back(Utilities->TimeStamp() + "," + AnsiString(Caller) + ",SecondPassActions,");
     if(TrainDataVector.empty())
     {
-        SecondPassMessage(GiveMessages, "±ÿ–Î±‡÷∆÷¡…Ÿ“ª∏ˆ≥µ¥ŒÃıƒø£°");
+        SecondPassMessage(GiveMessages, "ÂøÖÈ°ªÁºñÂà∂Ëá≥Â∞ë‰∏Ä‰∏™ËΩ¶Ê¨°Êù°ÁõÆÔºÅ");
         TrainDataVector.clear();
         Utilities->CallLogPop(1832);
         return(false);
@@ -12047,8 +12047,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                         if(!AtLocSuccessor(AVEntry1))
                         {
                             // Frh following Snt-sh will return false in location check, so no need to check here
-                            SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" +
-                                              TDEntry.HeadCode + "°ø÷∏¡Ó”Ô∑®£°");
+                            SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" +
+                                              TDEntry.HeadCode + "„ÄëÊåá‰ª§ËØ≠Ê≥ïÔºÅ");
                             TrainDataVector.clear();
                             Utilities->CallLogPop(523);
                             return(false);
@@ -12057,8 +12057,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 }
                 else
                 {
-                    SecondPassMessage(GiveMessages, "°æ" +
-                                      TDEntry.HeadCode + "°ø≥µÀŸ«Î…Ë÷√Œ™°æ0°ø£°");
+                    SecondPassMessage(GiveMessages, "„Äê" +
+                                      TDEntry.HeadCode + "„ÄëËΩ¶ÈÄüËØ∑ËÆæÁΩÆ‰∏∫„Äê0„ÄëÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(791);
                     return(false);
@@ -12080,8 +12080,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     // at least 2 entries checked in integrity check so (1) valid
                     if(!MovingSuccessor(AVEntry1))
                     {
-						SecondPassMessage(GiveMessages, "°æ" +
-                                          TDEntry.HeadCode + "°ø»±µΩµ„Õ£≥µ÷∏¡Ó£°");
+						SecondPassMessage(GiveMessages, "„Äê" +
+                                          TDEntry.HeadCode + "„ÄëÁº∫Âà∞ÁÇπÂÅúËΩ¶Êåá‰ª§ÔºÅ");
                         TrainDataVector.clear();
                         Utilities->CallLogPop(790);
                         return(false);
@@ -12264,8 +12264,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "°æ" + TDEntry.HeadCode +
-                                      "°øcdt»±ø™µ„∑¢≥µ÷∏¡Ó£°");
+					SecondPassMessage(GiveMessages, "„Äê" + TDEntry.HeadCode +
+                                      "„ÄëcdtÁº∫ÂºÄÁÇπÂèëËΩ¶Êåá‰ª§ÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(805);
                     return(false);
@@ -12283,8 +12283,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!MovingSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "°æ" +
-                                      TDEntry.HeadCode + "°ø»±µΩµ„Õ£≥µ÷∏¡Ó£°");
+					SecondPassMessage(GiveMessages, "„Äê" +
+                                      TDEntry.HeadCode + "„ÄëÁº∫Âà∞ÁÇπÂÅúËΩ¶Êåá‰ª§ÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(807);
                     return(false);
@@ -12405,8 +12405,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-                    SecondPassMessage(GiveMessages, "°æ" + TDEntry.HeadCode +
-                                      "≥µÀŸ«Î…Ë÷√Œ™°æ0°ø£°");
+                    SecondPassMessage(GiveMessages, "„Äê" + TDEntry.HeadCode +
+                                      "ËΩ¶ÈÄüËØ∑ËÆæÁΩÆ‰∏∫„Äê0„ÄëÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(810);
                     return(false);
@@ -12425,8 +12425,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!MovingSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "°æ" + TDEntry.HeadCode +
-                                      "°ø»±µΩµ„Õ£≥µ÷∏¡Ó£°");
+					SecondPassMessage(GiveMessages, "„Äê" + TDEntry.HeadCode +
+                                      "„ÄëÁº∫Âà∞ÁÇπÂÅúËΩ¶Êåá‰ª§ÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(812);
                     return(false);
@@ -12508,8 +12508,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(AVEntry.DepartureTime < AVEntry.ArrivalTime)
                 {
-					SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" +
-                                      TDEntry.HeadCode + "°ø ±øÃÀ≥–Ú£°");
+					SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" +
+                                      TDEntry.HeadCode + "„ÄëÊó∂ÂàªÈ°∫Â∫èÔºÅ");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(813);
                     return(false);
@@ -12531,7 +12531,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.ArrivalTime < CurrentTime)
                     {
-						SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" + TDEntry.HeadCode + "°ø ±øÃÀ≥–Ú£°");
+						SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + TDEntry.HeadCode + "„ÄëÊó∂ÂàªÈ°∫Â∫èÔºÅ");
                         TrainDataVector.clear();
                         Utilities->CallLogPop(815);
                         return(false);
@@ -12543,7 +12543,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     if(AVEntry.DepartureTime < CurrentTime)
                     // both may be 0 legitimately so must allow for this
                     {
-						SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" + TDEntry.HeadCode + "°ø ±øÃÀ≥–Ú£°");
+						SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + TDEntry.HeadCode + "„ÄëÊó∂ÂàªÈ°∫Â∫èÔºÅ");
                         TrainDataVector.clear();
                         Utilities->CallLogPop(816);
                         return(false);
@@ -12555,8 +12555,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             if(AVEntry.EventTime < CurrentTime)
             // all others have EventTime set
             {
-				SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" + TDEntry.HeadCode +
-                                  "°ø ±øÃÀ≥–Ú ªÚ ÃÏ¥∞≥ÂÕª£°");
+				SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + TDEntry.HeadCode +
+                                  "„ÄëÊó∂ÂàªÈ°∫Â∫è Êàñ Â§©Á™óÂÜ≤Á™ÅÔºÅ");
                 TrainDataVector.clear();
                 Utilities->CallLogPop(835);
                 return(false);
@@ -12632,7 +12632,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     if(LastEntryIsAnArrival && (AVEntry.LocationName != LastLocationName))
                     {
                         SecondPassMessage(GiveMessages,
-                                          "«ÎºÏ≤È°æ" + TDEntry.HeadCode + "°øœ‡πÿŒª÷√√˚≥∆ «∑Òœ‡Õ¨£°");
+                                          "ËØ∑Ê£ÄÊü•„Äê" + TDEntry.HeadCode + "„ÄëÁõ∏ÂÖ≥‰ΩçÁΩÆÂêçÁß∞ÊòØÂê¶Áõ∏ÂêåÔºÅ");
                         TrainDataVector.clear();
                         Utilities->CallLogPop(826);
                         return(false);
@@ -12703,7 +12703,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     if(LastEntryIsAnArrival && (AVEntry.LocationName != LastLocationName))
                     {
                         SecondPassMessage(GiveMessages,
-                                          "«ÎºÏ≤È°æ" + TDEntry.HeadCode + "°øœ‡πÿŒª÷√√˚≥∆ «∑Òœ‡Õ¨£°");
+                                          "ËØ∑Ê£ÄÊü•„Äê" + TDEntry.HeadCode + "„ÄëÁõ∏ÂÖ≥‰ΩçÁΩÆÂêçÁß∞ÊòØÂê¶Áõ∏ÂêåÔºÅ");
                         TrainDataVector.clear();
                         Utilities->CallLogPop(831);
                         return(false);
@@ -13186,7 +13186,7 @@ bool TTrainController::CheckForDuplicateCrossReferences(int Caller, AnsiString M
 
     if(ReverseCount == 0)
     {
-		SecondPassMessage(GiveMessages, "«ÎºÏ≤È\n°æΩ”–¯≥µ¥Œ" + MainHeadCode + "°øªÚ°æ±‰∏¸≥µ¥Œ" + SecondHeadCode + "°ø£°");
+		SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•\n„ÄêÊé•Áª≠ËΩ¶Ê¨°" + MainHeadCode + "„ÄëÊàñ„ÄêÂèòÊõ¥ËΩ¶Ê¨°" + SecondHeadCode + "„ÄëÔºÅ");
         TrainDataVector.clear();
         Utilities->CallLogPop(1588);
         return(false);
@@ -13373,8 +13373,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     }
     if(ForwardEntryPtr->LocationName != ReverseEntryPtr->LocationName)
     {
-		SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" + OtherHeadCode +
-                          "°ø°æ" + MainHeadCode + "°øœ‡πÿŒª÷√√˚≥∆ «∑Òœ‡Õ¨£°");
+		SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + OtherHeadCode +
+                          "„Äë„Äê" + MainHeadCode + "„ÄëÁõ∏ÂÖ≥‰ΩçÁΩÆÂêçÁß∞ÊòØÂê¶Áõ∏ÂêåÔºÅ");
         TrainDataVector.clear();
         Utilities->CallLogPop(842);
         return(false);
@@ -13384,8 +13384,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ForwardEntryPtr->EventTime != ReverseEntryPtr->EventTime)
         {
-			SecondPassMessage(GiveMessages, "«ÎºÏ≤È°æ" + OtherHeadCode +
-                              "°ø°æ" + MainHeadCode + "°øœ‡πÿ ±øÃ «∑Òœ‡Õ¨£°");
+			SecondPassMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + OtherHeadCode +
+                              "„Äë„Äê" + MainHeadCode + "„ÄëÁõ∏ÂÖ≥Êó∂ÂàªÊòØÂê¶Áõ∏ÂêåÔºÅ");
             TrainDataVector.clear();
             Utilities->CallLogPop(525);
             return(false);
@@ -13866,7 +13866,7 @@ bool TTrainController::CheckStartPositionValidity(int Caller, AnsiString RearEle
         }
         if(x == 3)
         {
-            TimetableMessage(GiveMessages, "«ÎºÏ≤È°æ" + RearTrackElement.ElementID + FrontTrackElement.ElementID + "◊¯±Í ªÚ ∏Ò Ω£°");
+            TimetableMessage(GiveMessages, "ËØ∑Ê£ÄÊü•„Äê" + RearTrackElement.ElementID + FrontTrackElement.ElementID + "ÂùêÊ†á Êàñ Ê†ºÂºèÔºÅ");
             Utilities->CallLogPop(762);
             return(false);
         }
@@ -14540,7 +14540,7 @@ void TTrainController::TimetableMessage(bool GiveMessages, AnsiString Message)
     // false means don't give messages within the function
     else
     {
-        ShowMessage("°æ" + ServiceReference + "°ø" + Message);
+        ShowMessage("„Äê" + ServiceReference + "„Äë" + Message);
     }
 }
 
@@ -14597,19 +14597,19 @@ void TTrainController::LogActionError(int Caller, AnsiString HeadCode, AnsiStrin
     TDateTime ActualTime = TrainController->TTClockTime; //moved from lower down at v2.9.1
     AnsiString TimeAndHeadCode = Utilities->Format96HHMMSS(ActualTime) + "  " + HeadCode; //added at v2.9.1 to give more info to user
 
-    Prefix = "°æ‘À––æØ±®°ø";
-	ErrorLog = "°æŒª”⁄°ø";
+    Prefix = "„ÄêËøêË°åË≠¶Êä•„Äë";
+	ErrorLog = "„Äê‰Ωç‰∫é„Äë";
     if(ActionEventType == FailTrainEntry)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æ¡–≥µ«¯º‰Õ£≥µ®P“Úœﬂ¬∑”µ∂¬°ø°æŒª”⁄°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêÂàóËΩ¶Âå∫Èó¥ÂÅúËΩ¶‚âíÂõ†Á∫øË∑ØÊã•Â†µ„Äë„Äê‰Ωç‰∫é„Äë";
 //        WarningStr = " can't enter railway, train obstructing entry position ";
 //        Display->WarningLog(1, TimeAndHeadCode + WarningStr + LocationID);
     }
     else if(ActionEventType == FailEntryRouteSetAgainst)  //added at v2.9.1
     {
-        Prefix = "°æ‘À––Ã· æ°ø";
-        ErrorLog = "°æ¡–≥µ«¯º‰Õ£≥µ®P“ÚΩ¯¬∑≥ÂÕª°ø°æŒª”⁄°ø";
+        Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+        ErrorLog = "„ÄêÂàóËΩ¶Âå∫Èó¥ÂÅúËΩ¶‚âíÂõ†ËøõË∑ØÂÜ≤Á™Å„Äë„Äê‰Ωç‰∫é„Äë";
 //        WarningStr = " can't enter railway, route set against it at entry position ";
 //        Display->WarningLog(10, TimeAndHeadCode + WarningStr + LocationID);
     }
@@ -14629,8 +14629,8 @@ void TTrainController::LogActionError(int Caller, AnsiString HeadCode, AnsiStrin
     }*/
     else if(ActionEventType == FailEnterLockedRoute)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æ¡–≥µ«¯º‰Õ£≥µ®P“Úœﬂ¬∑∑‚À¯°ø°æŒª”⁄°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêÂàóËΩ¶Âå∫Èó¥ÂÅúËΩ¶‚âíÂõ†Á∫øË∑ØÂ∞ÅÈîÅ„Äë„Äê‰Ωç‰∫é„Äë";
 //        WarningStr = " can't enter on a locked route at ";
 //        Display->WarningLog(5, TimeAndHeadCode + WarningStr + LocationID);
     }
@@ -14643,18 +14643,18 @@ void TTrainController::LogActionError(int Caller, AnsiString HeadCode, AnsiStrin
     }*/
     else if(ActionEventType == FailUnexpectedExitRailway)
     {
-		ErrorLog = "°æ¡–≥µ∑¢…˙À¶’æ°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüÁî©Á´ô„Äë";
         UnexpectedExits++;
     }
     else if(ActionEventType == FailIncorrectExit)
     {
-		ErrorLog = "°æ¡–≥µ“∆Ωª¥ÌŒÛ°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶Áßª‰∫§ÈîôËØØ„Äë";
         IncorrectExits++;
     }
     else if(ActionEventType == FailLocTooShort)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æπ…µ¿∞≤≈≈¥ÌŒÛ°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêËÇ°ÈÅìÂÆâÊéíÈîôËØØ„Äë";
 //        WarningStr = " failed to split, location too short at ";
 //        Display->WarningLog(6, TimeAndHeadCode + WarningStr + LocationID);
     }
@@ -14667,61 +14667,61 @@ void TTrainController::LogActionError(int Caller, AnsiString HeadCode, AnsiStrin
     }*/
     else if(ActionEventType == FailUnexpectedBuffers)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æµ≤≥µ∆˜«∞Õ£≥µ°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêÊå°ËΩ¶Âô®ÂâçÂÅúËΩ¶„Äë";
     }
     else if(ActionEventType == FailMissedArrival)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         MissedStops++;
     }
     else if(ActionEventType == FailMissedSplit)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedJBO)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedJoinOther)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedTerminate)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedNewService)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedExitRailway)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
         OtherMissedEvents++;
     }
     else if(ActionEventType == FailMissedChangeDirection)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
 //        OtherMissedEvents++;   //dropped at v2.12.0 as cdt shouldn't count
     }
     else if(ActionEventType == FailMissedPass)
     {
-		Prefix = "°æ<<X>>°ø";
-		ErrorLog = "°æ<<X>>°ø";
+		Prefix = "„Äê<<X>>„Äë";
+		ErrorLog = "„Äê<<X>>„Äë";
 //        OtherMissedEvents++;  //dropped at v2.12.0 as missed pass shouldn't count
     }
 /*    else if(ActionEventType == FailBuffersPreventingStart)
@@ -14730,72 +14730,72 @@ void TTrainController::LogActionError(int Caller, AnsiString HeadCode, AnsiStrin
     }*/
     else if(ActionEventType == FailDerailed)
     {
-		ErrorLog = "°æ¡–≥µ∑¢…˙Õ—πÏ°ø°æŒª”⁄°ø";
-		Prefix = "°æ ¬π æØ±®°ø";
-		WarningStr = "°æ¡–≥µ∑¢…˙Õ—πÏ°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüËÑ±ËΩ®„Äë„Äê‰Ωç‰∫é„Äë";
+		Prefix = "„Äê‰∫ãÊïÖË≠¶Êä•„Äë";
+		WarningStr = "„ÄêÂàóËΩ¶ÂèëÁîüËÑ±ËΩ®„Äë„Äê‰Ωç‰∫é„Äë";
 		Display->WarningLog(1, TimeAndHeadCode + WarningStr + LocationID + '\t' + '\t');
         Derailments++;
     }
     else if(ActionEventType == FailBufferCrash)
     {
-		ErrorLog = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø°æŒª”⁄°ø";
-		Prefix = "°æ ¬π æØ±®°ø";
-		WarningStr = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë„Äê‰Ωç‰∫é„Äë";
+		Prefix = "„Äê‰∫ãÊïÖË≠¶Êä•„Äë";
+		WarningStr = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë„Äê‰Ωç‰∫é„Äë";
 		Display->WarningLog(2, TimeAndHeadCode + WarningStr + LocationID + '\t' + '\t');
         CrashedTrains++;
     }
     else if(ActionEventType == FailLevelCrossingCrash)
     {
-		ErrorLog = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø°æŒª”⁄°ø";
-		Prefix = "°æ ¬π æØ±®°ø";
-		WarningStr = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë„Äê‰Ωç‰∫é„Äë";
+		Prefix = "„Äê‰∫ãÊïÖË≠¶Êä•„Äë";
+		WarningStr = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë„Äê‰Ωç‰∫é„Äë";
 		Display->WarningLog(3, TimeAndHeadCode + WarningStr + LocationID + '\t' + '\t');
         CrashedTrains++;
     }
     else if(ActionEventType == FailCrashed)
     {
-		ErrorLog = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø" + OtherHeadCode + "°æŒª”⁄°ø";
-		Prefix = "°æ ¬π æØ±®°ø";
-		WarningStr = "°æ¡–≥µ∑¢…˙≈ˆ◊≤°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë" + OtherHeadCode + "„Äê‰Ωç‰∫é„Äë";
+		Prefix = "„Äê‰∫ãÊïÖË≠¶Êä•„Äë";
+		WarningStr = "„ÄêÂàóËΩ¶ÂèëÁîüÁ¢∞Êíû„Äë„Äê‰Ωç‰∫é„Äë";
 		Display->WarningLog(4, TimeAndHeadCode + WarningStr + LocationID + '\t' + '\t');
         CrashedTrains++;
         CrashedTrains++;
     }
 	else if(ActionEventType == TrainFailure)
 	{
-		ErrorLog = "°æ¡–≥µ∑¢…˙π ’œ°ø" + OtherHeadCode + "°æŒª”⁄°ø";
-		Prefix = "°æπ ’œæØ±®°ø";
-//        WarningStr = "°æ¡–≥µ∑¢…˙π ’œ°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë" + OtherHeadCode + "„Äê‰Ωç‰∫é„Äë";
+		Prefix = "„ÄêÊïÖÈöúË≠¶Êä•„Äë";
+//        WarningStr = "„ÄêÂàóËΩ¶ÂèëÁîüÊïÖÈöú„Äë„Äê‰Ωç‰∫é„Äë";
 //        Display->WarningLog(5, TimeAndHeadCode + WarningStr + LocationID + '\t' + '\t');
 	}
     else if(ActionEventType == FailSPAD)
     {
-		ErrorLog = "°æ¡–≥µΩÙº±÷∆∂Ø°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶Á¥ßÊÄ•Âà∂Âä®„Äë„Äê‰Ωç‰∫é„Äë";
 //        Prefix = " SPAD: ";
         SPADEvents++;
     }
     else if(ActionEventType == FailLockedRoute)
     {
-		ErrorLog = "°æΩ¯¬∑Œ•πÊ»°œ˚°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêËøõË∑ØËøùËßÑÂèñÊ∂à„Äë„Äê‰Ωç‰∫é„Äë";
 //        Prefix = " SPAD RISK: ";
         SPADRisks++;
     }
     else if(ActionEventType == RouteForceCancelled)
     {
-		ErrorLog = "°æ¡–≥µƒÊœÚ‘À––°ø°æŒª”⁄°ø";
+		ErrorLog = "„ÄêÂàóËΩ¶ÈÄÜÂêëËøêË°å„Äë„Äê‰Ωç‰∫é„Äë";
         SPADRisks++;
     }
     else if(ActionEventType == WaitingForJBO)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æπ…µ¿∞≤≈≈¥ÌŒÛ°ø" + OtherHeadCode + "°æŒª”⁄°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêËÇ°ÈÅìÂÆâÊéíÈîôËØØ„Äë" + OtherHeadCode + "„Äê‰Ωç‰∫é„Äë";
 //        WarningStr = " waiting to join " + OtherHeadCode + " at ";
 //        Display->WarningLog(8, TimeAndHeadCode + WarningStr + LocationID);
     }
     else if(ActionEventType == WaitingForFJO)
     {
-		Prefix = "°æ‘À––Ã· æ°ø";
-		ErrorLog = "°æ¡–≥µ…Í«Î¡™π“°ø" + OtherHeadCode + "°æŒª”⁄°ø";
+		Prefix = "„ÄêËøêË°åÊèêÁ§∫„Äë";
+		ErrorLog = "„ÄêÂàóËΩ¶Áî≥ËØ∑ËÅîÊåÇ„Äë" + OtherHeadCode + "„Äê‰Ωç‰∫é„Äë";
 //        WarningStr = " waiting to be joined by " + OtherHeadCode + " at ";
 //        Display->WarningLog(9, TimeAndHeadCode + WarningStr + LocationID);
     }
@@ -15491,7 +15491,7 @@ void TTrainController::CreateFormattedTimetable(int Caller, AnsiString RailwayTi
         }
     }
 
-    ShowMessage(" ±øÃ±Ì°æµº≥ˆ°ø≥…π¶£°" + ShortTTName +
+    ShowMessage("Êó∂ÂàªË°®„ÄêÂØºÂá∫„ÄëÊàêÂäüÔºÅ" + ShortTTName +
                 "");
 
     Screen->Cursor = TCursor(-11); // Hourglass
@@ -18737,12 +18737,12 @@ AnsiString TTrainController::GetExitLocationAndAt(int Caller, TNumList &ExitList
             Utilities->CallLogPop(1572);
             if(ExitList.size() < 4)
             {
-                AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+                AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
                 return("");
             }
             else
             {
-                AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+                AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
                 return("");
             }
         }
@@ -18754,12 +18754,12 @@ AnsiString TTrainController::GetExitLocationAndAt(int Caller, TNumList &ExitList
             Utilities->CallLogPop(1570);
             if(ExitList.size() < 4)
             {
-                AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+                AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
                 return("");
             }
             else
             {
-                AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+                AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
                 return("");
             }
         }
@@ -18767,12 +18767,12 @@ AnsiString TTrainController::GetExitLocationAndAt(int Caller, TNumList &ExitList
     Utilities->CallLogPop(1569);
     if(ExitList.size() < 4)
     {
-        AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+        AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
         return("" + StartName);
     }
     else
     {
-        AllowedExits = "°æŒª”⁄°ø" + ExitLocList + '\t';
+        AllowedExits = "„Äê‰Ωç‰∫é„Äë" + ExitLocList + '\t';
         return("" + StartName);
     }
 }
@@ -18850,125 +18850,125 @@ void TTrainController::SendPerformanceSummary(int Caller, std::ofstream &PerfFil
     {
         AvEarlyExitMins = FormatFloat(FormatStr, (TotEarlyExitMins / EarlyExits));
     }
-    PerfFile << '\n' << '\n' << "®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P";
-    PerfFile << '\n' << '\n' << "°æœµÕ≥ª„◊‹°ø" << '\n' << '\n';
+    PerfFile << '\n' << '\n' << "‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí";
+    PerfFile << '\n' << '\n' << "„ÄêÁ≥ªÁªüÊ±áÊÄª„Äë" << '\n' << '\n';
 
     if(OnTimeArrivals != 1)
     {
-        PerfFile << "°æ’˝µ„µΩ¥Ô°ø" << OnTimeArrivals << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÂà∞Ëææ„Äë" << OnTimeArrivals << " Ê¨°" << '\t';
     }
     else
     {
-        PerfFile << "°æ’˝µ„µΩ¥Ô°ø" << OnTimeArrivals << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÂà∞Ëææ„Äë" << OnTimeArrivals << " Ê¨°" << '\t';
     }
     if(LateArrivals > 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateArrivals << " ¥Œ°æ∆Ωæ˘ " << AvLateArrMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateArrivals << " Ê¨°„ÄêÂπ≥Âùá " << AvLateArrMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else if(LateArrivals == 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateArrivals << " ¥Œ°æ∆Ωæ˘ " << AvLateArrMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateArrivals << " Ê¨°„ÄêÂπ≥Âùá " << AvLateArrMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else
     {
-        PerfFile << "°æÕÌµ„°ø" << LateArrivals << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateArrivals << " Ê¨°" << '\t';
     }
     if(EarlyArrivals > 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyArrivals << " ¥Œ°æ∆Ωæ˘ " << AvEarlyArrMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyArrivals << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyArrMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else if(EarlyArrivals == 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyArrivals << " ¥Œ°æ∆Ωæ˘ " << AvEarlyArrMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyArrivals << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyArrMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyArrivals << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyArrivals << " Ê¨°" << '\n';
     }
     if(OnTimeDeps != 1)
     {
-        PerfFile << "°æ’˝µ„∑¢≥µ°ø" << OnTimeDeps << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÂèëËΩ¶„Äë" << OnTimeDeps << " Ê¨°" << '\t';
     }
     else
     {
-        PerfFile << "°æ’˝µ„∑¢≥µ°ø" << OnTimeDeps << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÂèëËΩ¶„Äë" << OnTimeDeps << " Ê¨°" << '\t';
     }
     if(LateDeps > 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateDeps << " ¥Œ°æ∆Ωæ˘ " << AvLateDepMins.c_str() << " ∑÷÷”°ø" << '\t' <<"°æ‘Áµ„°ø0 ¥Œ" << '\n';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateDeps << " Ê¨°„ÄêÂπ≥Âùá " << AvLateDepMins.c_str() << " ÂàÜÈíü„Äë" << '\t' <<"„ÄêÊó©ÁÇπ„Äë0 Ê¨°" << '\n';
     }
     else if(LateDeps == 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateDeps << " ¥Œ°æ∆Ωæ˘ " << AvLateDepMins.c_str() << " ∑÷÷”°ø" << '\t' <<"°æ‘Áµ„°ø0 ¥Œ" << '\n';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateDeps << " Ê¨°„ÄêÂπ≥Âùá " << AvLateDepMins.c_str() << " ÂàÜÈíü„Äë" << '\t' <<"„ÄêÊó©ÁÇπ„Äë0 Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æÕÌµ„°ø" << LateDeps << " ¥Œ" << '\t' <<"°æ‘Áµ„°ø0 ¥Œ" << '\n';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateDeps << " Ê¨°" << '\t' <<"„ÄêÊó©ÁÇπ„Äë0 Ê¨°" << '\n';
     }
     if(OnTimePasses != 1)
     {
-        PerfFile << "°æ’˝µ„Õ®π˝°ø" << OnTimePasses << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÈÄöËøá„Äë" << OnTimePasses << " Ê¨°" << '\t';
     }
     else
     {
-        PerfFile << "°æ’˝µ„Õ®π˝°ø" << OnTimePasses << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÈÄöËøá„Äë" << OnTimePasses << " Ê¨°" << '\t';
     }
     if(LatePasses > 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LatePasses << " ¥Œ°æ∆Ωæ˘ " << AvLatePassMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LatePasses << " Ê¨°„ÄêÂπ≥Âùá " << AvLatePassMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else if(LatePasses == 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LatePasses << " ¥Œ°æ∆Ωæ˘ " << AvLatePassMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LatePasses << " Ê¨°„ÄêÂπ≥Âùá " << AvLatePassMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else
     {
-        PerfFile << "°æÕÌµ„°ø" << LatePasses << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LatePasses << " Ê¨°" << '\t';
     }
     if(EarlyPasses > 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyPasses << " ¥Œ°æ∆Ωæ˘ " << AvEarlyPassMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyPasses << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyPassMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else if(EarlyPasses == 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyPasses << " ¥Œ°æ∆Ωæ˘ " << AvEarlyPassMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyPasses << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyPassMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyPasses << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyPasses << " Ê¨°" << '\n';
     }
 
     if(OnTimeExits != 1)        //this batch added at v2.9.1
     {
-        PerfFile << "°æ’˝µ„“∆Ωª°ø" << OnTimeExits << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÁßª‰∫§„Äë" << OnTimeExits << " Ê¨°" << '\t';
     }
     else
     {
-        PerfFile << "°æ’˝µ„“∆Ωª°ø" << OnTimeExits << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊ≠£ÁÇπÁßª‰∫§„Äë" << OnTimeExits << " Ê¨°" << '\t';
     }
     if(LateExits > 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateExits << " ¥Œ°æ∆Ωæ˘ " << AvLateExitMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateExits << " Ê¨°„ÄêÂπ≥Âùá " << AvLateExitMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else if(LateExits == 1)
     {
-        PerfFile << "°æÕÌµ„°ø" << LateExits << " ¥Œ°æ∆Ωæ˘ " << AvLateExitMins.c_str() << " ∑÷÷”°ø" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateExits << " Ê¨°„ÄêÂπ≥Âùá " << AvLateExitMins.c_str() << " ÂàÜÈíü„Äë" << '\t';
     }
     else
     {
-        PerfFile << "°æÕÌµ„°ø" << LateExits << " ¥Œ" << '\t';
+        PerfFile << "„ÄêÊôöÁÇπ„Äë" << LateExits << " Ê¨°" << '\t';
     }
     if(EarlyExits > 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyExits << " ¥Œ°æ∆Ωæ˘ " << AvEarlyExitMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyExits << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyExitMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else if(EarlyExits == 1)
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyExits << " ¥Œ°æ∆Ωæ˘ " << AvEarlyExitMins.c_str() << " ∑÷÷”°ø" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyExits << " Ê¨°„ÄêÂπ≥Âùá " << AvEarlyExitMins.c_str() << " ÂàÜÈíü„Äë" << '\n';
     }
     else
     {
-        PerfFile << "°æ‘Áµ„°ø" << EarlyExits << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÊó©ÁÇπ„Äë" << EarlyExits << " Ê¨°" << '\n';
     }
 
     TDateTime TempExcessLCDownTime;
@@ -18995,47 +18995,47 @@ void TTrainController::SendPerformanceSummary(int Caller, std::ofstream &PerfFil
 
     if(ExcessLCDownMins > 0.1)
     {
-        PerfFile << "°æ∆ΩΩªµ¿ø⁄≥¨ ±°ø" << FormattedExcessLCDownMins.c_str() << " ∑÷÷”" << '\n';
+        PerfFile << "„ÄêÂπ≥‰∫§ÈÅìÂè£Ë∂ÖÊó∂„Äë" << FormattedExcessLCDownMins.c_str() << " ÂàÜÈíü" << '\n';
     }
     if(NumFailures != 1)
     {
-        PerfFile << "°æ¡–≥µÀÊª˙π ’œ°ø" << NumFailures << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ÈöèÊú∫ÊïÖÈöú„Äë" << NumFailures << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µÀÊª˙π ’œ°ø" << NumFailures << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ÈöèÊú∫ÊïÖÈöú„Äë" << NumFailures << " Ê¨°" << '\n';
     }
     if(IncorrectExits != 1)
     {
-        PerfFile << "°æ¡–≥µ“∆Ωª¥ÌŒÛ°ø" << IncorrectExits << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Áßª‰∫§ÈîôËØØ„Äë" << IncorrectExits << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µ“∆Ωª¥ÌŒÛ°ø" << IncorrectExits << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Áßª‰∫§ÈîôËØØ„Äë" << IncorrectExits << " Ê¨°" << '\n';
     }
     if(UnexpectedExits != 1)
     {
-        PerfFile << "°æ¡–≥µ∑¢…˙À¶’æ°ø" << UnexpectedExits << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ÂèëÁîüÁî©Á´ô„Äë" << UnexpectedExits << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µ∑¢…˙À¶’æ°ø" << UnexpectedExits << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ÂèëÁîüÁî©Á´ô„Äë" << UnexpectedExits << " Ê¨°" << '\n';
     }
     if(MissedStops != 1)
     {
-        PerfFile << "°æÕ£’æ»± ß°ø" << MissedStops << " ∏ˆ" << '\n';
+        PerfFile << "„ÄêÂÅúÁ´ôÁº∫Â§±„Äë" << MissedStops << " ‰∏™" << '\n';
     }
     else
     {
-        PerfFile << "°æÕ£’æ»± ß°ø" << MissedStops << " ∏ˆ" << '\n';
+        PerfFile << "„ÄêÂÅúÁ´ôÁº∫Â§±„Äë" << MissedStops << " ‰∏™" << '\n';
     }
     if(OtherMissedEvents != 1)
     {
-        PerfFile << "°æ◊˜“µ»± ß°ø" << OtherMissedEvents << " ∏ˆ" << '\n';
+        PerfFile << "„Äê‰Ωú‰∏öÁº∫Â§±„Äë" << OtherMissedEvents << " ‰∏™" << '\n';
     }
     else
     {
-        PerfFile << "°æ◊˜“µ»± ß°ø" << OtherMissedEvents << " ∏ˆ" << '\n';
+        PerfFile << "„Äê‰Ωú‰∏öÁº∫Â§±„Äë" << OtherMissedEvents << " ‰∏™" << '\n';
     }
 /*    if(AvHoursIntValue > 0)
     {
@@ -19061,37 +19061,37 @@ void TTrainController::SendPerformanceSummary(int Caller, std::ofstream &PerfFil
     }*/
     if(SPADRisks != 1)
     {
-        PerfFile << "°æΩ¯¬∑Œ•πÊ»°œ˚°ø" << SPADRisks << " ¥Œ" << '\n';
+        PerfFile << "„ÄêËøõË∑ØËøùËßÑÂèñÊ∂à„Äë" << SPADRisks << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æΩ¯¬∑Œ•πÊ»°œ˚°ø" << SPADRisks << " ¥Œ" << '\n';
+        PerfFile << "„ÄêËøõË∑ØËøùËßÑÂèñÊ∂à„Äë" << SPADRisks << " Ê¨°" << '\n';
     }
     if(SPADEvents != 1)
     {
-        PerfFile << "°æ¡–≥µΩÙº±÷∆∂Ø°ø" << SPADEvents << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Á¥ßÊÄ•Âà∂Âä®„Äë" << SPADEvents << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µΩÙº±÷∆∂Ø°ø" << SPADEvents << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Á¥ßÊÄ•Âà∂Âä®„Äë" << SPADEvents << " Ê¨°" << '\n';
     }
     if(Derailments != 1)
     {
-        PerfFile << "°æ¡–≥µÕ—πÏ ¬π °ø" << Derailments << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ËÑ±ËΩ®‰∫ãÊïÖ„Äë" << Derailments << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µÕ—πÏ ¬π °ø" << Derailments << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶ËÑ±ËΩ®‰∫ãÊïÖ„Äë" << Derailments << " Ê¨°" << '\n';
     }
     if(CrashedTrains != 1)
     {
-        PerfFile << "°æ¡–≥µ≈ˆ◊≤ ¬π °ø" << CrashedTrains << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Á¢∞Êíû‰∫ãÊïÖ„Äë" << CrashedTrains << " Ê¨°" << '\n';
     }
     else
     {
-        PerfFile << "°æ¡–≥µ≈ˆ◊≤ ¬π °ø" << CrashedTrains << " ¥Œ" << '\n';
+        PerfFile << "„ÄêÂàóËΩ¶Á¢∞Êíû‰∫ãÊïÖ„Äë" << CrashedTrains << " Ê¨°" << '\n';
     }
-	PerfFile << '\n' << "®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P" << '\n';
+	PerfFile << '\n' << "‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí" << '\n';
 
     bool DerailSPADFlag = false, CrashFlag = false;
 
@@ -19148,82 +19148,82 @@ void TTrainController::SendPerformanceSummary(int Caller, std::ofstream &PerfFil
         {
             AddedString = TwoOrMoreFailureString;
         }
-		PerfFile << "\n°æœµÕ≥∆¿∑÷°ø" << OverallScorePercent << " ∑÷\n";
+		PerfFile << "\n„ÄêÁ≥ªÁªüËØÑÂàÜ„Äë" << OverallScorePercent << " ÂàÜ\n";
         AnsiString Rating = "";
         if(OverallScorePercent > 78)
         {
-            Rating = "®Pµ˜∂»ÕÍ≥…”Æ»°°æ10±∂°øΩ±¿¯Ω®P";
+            Rating = "‚âíË∞ÉÂ∫¶ÂÆåÊàêËµ¢Âèñ„Äê10ÂÄç„ÄëÂ•ñÂä±Èáë‚âí";
         }
 /*        else if(OverallScorePercent >= 95)
         {
-            Rating = "∑«≥£”≈–„";
+            Rating = "ÈùûÂ∏∏‰ºòÁßÄ";
         }
         else if(OverallScorePercent >= 90)
         {
-            Rating = "∑«≥£≤ª¥Ì";
+            Rating = "ÈùûÂ∏∏‰∏çÈîô";
         }
         else if(OverallScorePercent >= 80)
         {
-            Rating = "±Ìœ÷≤ª¥Ì";
+            Rating = "Ë°®Áé∞‰∏çÈîô";
         }
         else if(OverallScorePercent >= 70)
         {
-            Rating = "±Ìœ÷ªπ––";
+            Rating = "Ë°®Áé∞ËøòË°å";
         }
         else if(OverallScorePercent >= 60)
         {
-            Rating = "≤ªÃ´¬˙“‚";
+            Rating = "‰∏çÂ§™Êª°ÊÑè";
         }
         else if(OverallScorePercent >= 50)
         {
-            Rating = "≤Ó«ø»À“‚";
+            Rating = "Â∑ÆÂº∫‰∫∫ÊÑè";
         }
         else if(OverallScorePercent >= 40)
         {
-            Rating = "±Ìœ÷‘„∏‚";
+            Rating = "Ë°®Áé∞Á≥üÁ≥ï";
         }
         else if(OverallScorePercent >= 30)
         {
-            Rating = "Ã´‘„∏‚¡À";
+            Rating = "Â§™Á≥üÁ≥ï‰∫Ü";
         }
         else if(OverallScorePercent >= 20)
         {
-            Rating = "∑«≥£‘„∏‚";
+            Rating = "ÈùûÂ∏∏Á≥üÁ≥ï";
         }
         else if(OverallScorePercent >= 10)
         {
-            Rating = "∫ß»ÀÃ˝Œ≈";
+            Rating = "È™á‰∫∫Âê¨Èóª";
         }*/
         else if(OverallScorePercent >= 5)
         {
             if(DerailSPADFlag)
             {
-                Rating = " ¬π ’˜∫Ú";
+                Rating = "‰∫ãÊïÖÂæÅÂÄô";
             }
             // SPADs/Derailments
             else
             {
-                Rating = "‘ŸΩ”‘Ÿ¿˜";
+                Rating = "ÂÜçÊé•ÂÜçÂéâ";
             }
         }
         else if(OverallScorePercent < 5)
         {
             if(CrashFlag)
             {
-                Rating = "…ÀÕˆ ¬π ";  // Crashes
+                Rating = "‰º§‰∫°‰∫ãÊïÖ";  // Crashes
             }
             else
             {
-                Rating = "Œﬁ∑®√Ë ˆ";
+                Rating = "Êó†Ê≥ïÊèèËø∞";
             }
         }
-        PerfFile << "°æœµÕ≥∆¿”Ô°ø" << Rating.c_str() << '\n';
+        PerfFile << "„ÄêÁ≥ªÁªüËØÑËØ≠„Äë" << Rating.c_str() << '\n';
     }
     else
     {
-        PerfFile << "\n°æRIO®PSignalµ˜∂»ƒ£ƒ‚°ø" << '\n';
+        PerfFile << "\n„ÄêRIO‚âíSignalË∞ÉÂ∫¶Ê®°Êãü„Äë" << '\n';
     }
-    PerfFile << '\n' << "®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P®P";
+    PerfFile << '\n' << "‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí‚âí";
     Utilities->CallLogPop(1736);
 }
 
