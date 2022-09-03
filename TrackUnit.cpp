@@ -2570,10 +2570,10 @@ bool TTrack::TryToConnectTrack(int Caller, bool &LocError, int &HLoc, int &VLoc,
     }
     if(GapsUnset(7))
     {
-        if(GiveMessages)
+/*        if(GiveMessages)
         {
             ShowMessage("Gaps must be set before track can be validated");
-        }
+        }*/
         Utilities->CallLogPop(1135);
         return(false);
     }
@@ -2610,7 +2610,7 @@ bool TTrack::TryToConnectTrack(int Caller, bool &LocError, int &HLoc, int &VLoc,
 // here if pre-check successful
     if(!RepositionAndMapTrack(0))
     {
-        ShowMessage("Error in RepositionAndMapTrack during TryToConnectTrack.  Railway file is corrupt, further use may cause a system crash");
+//        ShowMessage("Error in RepositionAndMapTrack during TryToConnectTrack.  Railway file is corrupt, further use may cause a system crash");
         Utilities->CallLogPop(1138);
         return(false);
     }
@@ -2715,11 +2715,11 @@ bool TTrack::TryToConnectTrack(int Caller, bool &LocError, int &HLoc, int &VLoc,
             {
                 if(NoPlatsList.size() > 1)
                 {
-                    ShowMessage("请检查车站位置【\t" + NoPlatsAnsiList + "】站台铺画是否合理？");
+//                    ShowMessage("Please note: the following locations have no platforms, trains won't be able to stop or pass there:-\n\n" + NoPlatsAnsiList + "\nThis message will not be shown again.");
                 }
                 else
                 {
-                    ShowMessage("请检查车站位置【\t" + NoPlatsAnsiList + "】站台铺画是否合理？");
+//                    ShowMessage("Please note: the following location has no platforms, trains won't be able to stop or pass there:-\n\n" + NoPlatsAnsiList + "\nThis message will not be shown again.");
                 }
                 NoPlatsMessageSent = true;
             }
@@ -4491,7 +4491,7 @@ bool TTrack::GapsUnset(int Caller)
                 if(TrackElementAt(1106, TrackElementAt(1107, x).Conn[0]).TrackType != GapJump)
                 // check that the element pointed to by the gap link is a GapJump
                 {
-                    ShowMessage("Error - gap connected to a non-gap.  Railway file is corrupt, further use may cause a system crash");
+//                    ShowMessage("Error - gap connected to a non-gap.  Railway file is corrupt, further use may cause a system crash");
                     Utilities->CallLogPop(1137);
                     return(false);
                 }
@@ -4797,10 +4797,10 @@ bool TTrack::LinkTrack(int Caller, bool &LocError, int &HLoc, int &VLoc, bool Fi
         {
             if(!CheckFootCrossingLinks(1, TrackElementAt(1140, x)))
             {
-                ShowMessage(
+/*                ShowMessage(
                     "Footbridge or underpass connection error.  Each end must connect to a platform, concourse "
                     "or other footbridge or underpass, and they can't connect to each other (i.e. a footbridge "
-                    "can't connect to an underpass or vice versa)");
+                    "can't connect to an underpass or vice versa)");*/
                 HLoc = TrackElementAt(1141, x).HLoc;
                 VLoc = TrackElementAt(1142, x).VLoc;
                 LocError = true;
@@ -4832,7 +4832,7 @@ bool TTrack::LinkTrack(int Caller, bool &LocError, int &HLoc, int &VLoc, bool Fi
             int VecPos = GetVectorPositionFromTrackMap(14, NewHLoc, NewVLoc, ConnectionFoundFlag);
             if((TrackElementAt(1151, x).TrackType == Continuation) && (y == 0) && ConnectionFoundFlag)
             {
-                ShowMessage("Can't have a track element adjacent to a continuation exit");
+//                ShowMessage("Can't have a track element adjacent to a continuation exit");
                 HLoc = TrackElementAt(1152, x).HLoc;
                 VLoc = TrackElementAt(1153, x).VLoc;
                 LocError = true;
@@ -8546,7 +8546,7 @@ bool TTrack::DuplicatedLocationName(int Caller, bool GiveMessage)
         {
             if(GiveMessage)
             {
-                ShowMessage("Please note that more than one instance of " + NameBeingChecked + " was found.  Location names must be unique before the railway can be saved as a .rly file");
+//                ShowMessage("Please note that more than one instance of " + NameBeingChecked + " was found.  Location names must be unique before the railway can be saved as a .rly file");
             }
             Utilities->CallLogPop(2255);
             return(true);
@@ -8562,7 +8562,7 @@ bool TTrack::DuplicatedLocationName(int Caller, bool GiveMessage)
             {
                 if(GiveMessage)
                 {
-                    ShowMessage("Please note that more than one instance of " + NameBeingChecked + " was found.  Location names must be unique before the railway can be saved as a .rly file");
+//                    ShowMessage("Please note that more than one instance of " + NameBeingChecked + " was found.  Location names must be unique before the railway can be saved as a .rly file");
                 }
                 Utilities->CallLogPop(2256);
                 return(true);
@@ -11404,7 +11404,7 @@ bool TOnePrefDir::GetPrefDirStartElement(int Caller, int HLoc, int VLoc) // Retu
 /* it can be points so drop the code below - all exits are checked, no assumptions are made about the exit position of the start element
       if(TrackElement.TrackType == Points)
        {
-       ShowMessage("Can't start on points");//because if PrefDir leads away from the leading edge
+//       ShowMessage("Can't start on points");//because if PrefDir leads away from the leading edge
        //it isn't known which trailing edge is the required PrefDir - could use the straight as
        //default but may already be a PrefDir up to the diverging edge, then will have a mismatch,
        //best to prevent it to avoid problems
@@ -11492,7 +11492,7 @@ bool TOnePrefDir::GetNextPrefDirElement(int Caller, int HLoc, int VLoc, bool &Fi
       check & TotalSearchCounts check
       if((abs(TrackElement.HLoc - StartPrefDirElement.HLoc) > 120) || (abs(TrackElement.VLoc - StartPrefDirElement.VLoc) > 120))
        {
-       ShowMessage("Unable to reach the selected element - too far ahead");
+//       ShowMessage("Unable to reach the selected element - too far ahead");
        Utilities->CallLogPop(1692);
        return false;
        }
@@ -11996,7 +11996,7 @@ void TOnePrefDir::ConvertPrefDirSearchVector(int Caller)
 /* drop this, check dropped from search
       if(PrefDirVector.size() > 200)
        {
-       ShowMessage("The selected track segment is becoming too long, until it is accepted further elements can only be added one at a time");
+//       ShowMessage("The selected track segment is becoming too long, until it is accepted further elements can only be added one at a time");
        }
 */
     Utilities->CallLogPop(148);
@@ -12927,7 +12927,7 @@ void TOnePrefDir::CheckPrefDirAgainstTrackVector(int Caller)
     }
     if(DiscrepancyFound)
     {
-		ShowMessage("线路图已被修改，需重新【预设】运行图！");
+//        ShowMessage("Discrepancies found in the preferred direction file, preferred directions will be cleared");
         ClearPrefDir(); // also clears multimap
     }
     Utilities->CallLogPop(1436);
@@ -14497,7 +14497,7 @@ bool TOneRoute::GetNextPreferredRouteElement(int Caller, int HLoc, int VLoc, TOn
       check & TotalSearchCounts check
       if((abs(EndElement1.HLoc - StartElement1.HLoc) > 120) || (abs(EndElement1.VLoc - StartElement1.VLoc) > 120))
        {
-       TrainController->StopTTClockMessage(65, "Unable to reach the selected element - too far ahead");
+//       TrainController->StopTTClockMessage(65, "Unable to reach the selected element - too far ahead");
        Utilities->CallLogPop(1693);
        return false;
        }
@@ -15868,7 +15868,7 @@ bool TOneRoute::GetNextNonPreferredRouteElement(int Caller, int HLoc, int VLoc, 
       check & TotalSearchCounts check
       if((abs(EndElement1.HLoc - StartElement1.HLoc) > 120) || (abs(EndElement1.VLoc - StartElement1.VLoc) > 120))
        {
-       if(!Callon) TrainController->StopTTClockMessage(66, "Unable to reach the selected element - too far ahead");
+//       if(!Callon) TrainController->StopTTClockMessage(66, "Unable to reach the selected element - too far ahead");
        Utilities->CallLogPop(1694);
        return false;
        }
