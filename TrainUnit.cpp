@@ -11331,7 +11331,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxRunningSpeed = 10;
         if(!MRSLow) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "速度下限10km/h【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train maximum running speed can't be less than 10km/h in '" + TrainInfoStr + "', it will be set to 10km/h");
             MRSLow = true;
         }
     }
@@ -11341,7 +11341,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MassStr == "")
     {
-		TimetableMessage(GiveMessages, "计重必须为自然数【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train mass missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(895);
         return(false);
     }
@@ -11349,7 +11349,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MassStr[x] < '0') || (MassStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "计重必须为自然数【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train mass contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(896);
             return(false);
         }
@@ -11360,13 +11360,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         Mass = TTrain::MaximumMassLimit;
         if(!MassHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "计重上限10000t【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train mass > 10,000 tonnes in '" + TrainInfoStr + "'.  Setting it to 10,000 tonnes");
             MassHigh = true;
         }
     }
     if(Mass == 0)
     {
-		TimetableMessage(GiveMessages, "计重下限1t【'" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train mass zero in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(897);
         return(false);
     }
@@ -11376,7 +11376,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MaxBrakeForceStr == "")
     {
-		TimetableMessage(GiveMessages, "制动必须为自然数【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train braking force missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(898);
         return(false);
     }
@@ -11384,7 +11384,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MaxBrakeForceStr[x] != '.') && ((MaxBrakeForceStr[x] < '0') || (MaxBrakeForceStr[x] > '9')))
         {
-			TimetableMessage(GiveMessages, "制动必须为自然数【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train braking force contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(899);
             return(false);
         }
@@ -11397,7 +11397,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxBrakeForce = Mass;
         if(!BFHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "制动<=计重【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train braking force too high in '" + TrainInfoStr + "'.  Setting it to the same as the train mass");
             BFHigh = true;
         }
     }
@@ -11406,7 +11406,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxBrakeForce = Mass * 0.01;
         if(!BFLow) // added at v2.4.0
         {
-            TimetableMessage(GiveMessages, "制动>=计重x1%【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train braking force too low in '" + TrainInfoStr + "'.  Setting it to 1% of the train mass");
             BFLow = true;
         }
     }
@@ -11429,7 +11429,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     // deal with GrossPower
     if(GrossPowerStr == "")
     {
-		TimetableMessage(GiveMessages, "牵引必须为自然数【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train power missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(901);
         return(false);
     }
@@ -11437,7 +11437,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((GrossPowerStr[x] < '0') || (GrossPowerStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "牵引必须为自然数【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train power contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(902);
             return(false);
         }
@@ -11450,7 +11450,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         GrossPower = TTrain::MaximumPowerLimit;
         if(!PwrHigh)
         {
-			TimetableMessage(GiveMessages, "牵引上限100000kW【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train power > 100,000kW in '" + TrainInfoStr + "'.  Setting it to 100,000kW");
             PwrHigh = true;
         }
     }
@@ -11825,7 +11825,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     Utilities->CallLog.push_back(Utilities->TimeStamp() + "," + AnsiString(Caller) + ",SecondPassActions,");
     if(TrainDataVector.empty())
     {
-        SecondPassMessage(GiveMessages, "必须编制至少一个车次条目！");
+//        SecondPassMessage(GiveMessages, "Error in timetable - there appear to be no train services in the timetable, it must contain at least one");
         TrainDataVector.clear();
         Utilities->CallLogPop(1832);
         return(false);
@@ -12047,8 +12047,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                         if(!AtLocSuccessor(AVEntry1))
                         {
                             // Frh following Snt-sh will return false in location check, so no need to check here
-                            SecondPassMessage(GiveMessages, "请检查【" +
-                                              TDEntry.HeadCode + "】指令语法！");
+//                            SecondPassMessage(GiveMessages, "Error in timetable - stopped 'Snt' or 'Snt-sh' followed by an illegal event for: " +
+//                                              TDEntry.HeadCode + ". The event isn't valid for a stationary train.");
                             TrainDataVector.clear();
                             Utilities->CallLogPop(523);
                             return(false);
@@ -12057,8 +12057,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 }
                 else
                 {
-                    SecondPassMessage(GiveMessages, "【" +
-                                      TDEntry.HeadCode + "】车速请设置为【0】！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - 'Snt' or 'Snt-sh' event at stop location but start speed not zero for: " +
+//                                      TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(791);
                     return(false);
@@ -12080,8 +12080,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     // at least 2 entries checked in integrity check so (1) valid
                     if(!MovingSuccessor(AVEntry1))
                     {
-						SecondPassMessage(GiveMessages, "【" +
-                                          TDEntry.HeadCode + "】缺到点停车指令！");
+//                        SecondPassMessage(GiveMessages, "Error in timetable - unlocated 'Snt' not followed by 'Fer', 'pas' or an arrival for: " +
+//                                          TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(790);
                         return(false);
@@ -12264,8 +12264,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "【" + TDEntry.HeadCode +
-                                      "】cdt缺开点发车指令！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a 'cdt' is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a stationary train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(805);
                     return(false);
@@ -12283,8 +12283,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!MovingSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "【" +
-                                      TDEntry.HeadCode + "】缺到点停车指令！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure is followed by an illegal event for: " +
+//                                      TDEntry.HeadCode + ". The event isn't valid for a moving train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(807);
                     return(false);
@@ -12405,8 +12405,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-                    SecondPassMessage(GiveMessages, "【" + TDEntry.HeadCode +
-                                      "车速请设置为【0】！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a stationary train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(810);
                     return(false);
@@ -12425,8 +12425,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!MovingSuccessor(AVEntry2))
                 {
-					SecondPassMessage(GiveMessages, "【" + TDEntry.HeadCode +
-                                      "】缺到点停车指令！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed departure is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a moving train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(812);
                     return(false);
@@ -12508,8 +12508,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(AVEntry.DepartureTime < AVEntry.ArrivalTime)
                 {
-					SecondPassMessage(GiveMessages, "请检查【" +
-                                      TDEntry.HeadCode + "】时刻顺序！");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure has a later arrival than departure time for: " +
+//                                      TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(813);
                     return(false);
@@ -12531,7 +12531,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.ArrivalTime < CurrentTime)
                     {
-						SecondPassMessage(GiveMessages, "请检查【" + TDEntry.HeadCode + "】时刻顺序！");
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a timed location event has a time that is too early for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(815);
                         return(false);
@@ -12543,7 +12543,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     if(AVEntry.DepartureTime < CurrentTime)
                     // both may be 0 legitimately so must allow for this
                     {
-						SecondPassMessage(GiveMessages, "请检查【" + TDEntry.HeadCode + "】时刻顺序！");
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a timed location event has a time that is too early for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(816);
                         return(false);
@@ -12555,8 +12555,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             if(AVEntry.EventTime < CurrentTime)
             // all others have EventTime set
             {
-				SecondPassMessage(GiveMessages, "请检查【" + TDEntry.HeadCode +
-                                  "】时刻顺序 或 天窗冲突！");
+//                SecondPassMessage(GiveMessages, "Error in timetable - a train event has a time that is set too early for: " + TDEntry.HeadCode +
+//                                  ", may be before timetable start time");
                 TrainDataVector.clear();
                 Utilities->CallLogPop(835);
                 return(false);
@@ -12631,8 +12631,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(LastEntryIsAnArrival && (AVEntry.LocationName != LastLocationName))
                     {
-                        SecondPassMessage(GiveMessages,
-                                          "请检查【" + TDEntry.HeadCode + "】相关位置名称是否相同！");
+//                        SecondPassMessage(GiveMessages,
+//                                          "Error in timetable - a location event for a timed departure is different from the arrival location for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(826);
                         return(false);
@@ -12702,8 +12702,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(LastEntryIsAnArrival && (AVEntry.LocationName != LastLocationName))
                     {
-                        SecondPassMessage(GiveMessages,
-                                          "请检查【" + TDEntry.HeadCode + "】相关位置名称是否相同！");
+//                        SecondPassMessage(GiveMessages,
+//                                          "Error in timetable - a location event for a timed departure is different from the arrival location for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(831);
                         return(false);
@@ -13186,7 +13186,7 @@ bool TTrainController::CheckForDuplicateCrossReferences(int Caller, AnsiString M
 
     if(ReverseCount == 0)
     {
-		SecondPassMessage(GiveMessages, "请检查\n【接续车次" + MainHeadCode + "】或【变更车次" + SecondHeadCode + "】！");
+//        SecondPassMessage(GiveMessages, "Error in timetable - cross reference missing in either " + MainHeadCode + " or " + SecondHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(1588);
         return(false);
@@ -13373,8 +13373,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     }
     if(ForwardEntryPtr->LocationName != ReverseEntryPtr->LocationName)
     {
-		SecondPassMessage(GiveMessages, "请检查【" + OtherHeadCode +
-                          "】【" + MainHeadCode + "】相关位置名称是否相同！");
+//        SecondPassMessage(GiveMessages, "Error in timetable - cross referenced train " + OtherHeadCode +
+//                          " is at a different location to the referencing train " + MainHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(842);
         return(false);
@@ -13384,8 +13384,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ForwardEntryPtr->EventTime != ReverseEntryPtr->EventTime)
         {
-			SecondPassMessage(GiveMessages, "请检查【" + OtherHeadCode +
-                              "】【" + MainHeadCode + "】相关时刻是否相同！");
+//            SecondPassMessage(GiveMessages, "Error in timetable - cross referenced train " + OtherHeadCode +
+//                              " has a different event time to the referencing train " + MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(525);
             return(false);
@@ -13866,7 +13866,7 @@ bool TTrainController::CheckStartPositionValidity(int Caller, AnsiString RearEle
         }
         if(x == 3)
         {
-            TimetableMessage(GiveMessages, "请检查【" + RearTrackElement.ElementID + FrontTrackElement.ElementID + "坐标 或 格式！");
+//            TimetableMessage(GiveMessages, "Front element: " + FrontTrackElement.ElementID + " not linked to rear element: " + RearTrackElement.ElementID);
             Utilities->CallLogPop(762);
             return(false);
         }
@@ -15491,8 +15491,8 @@ void TTrainController::CreateFormattedTimetable(int Caller, AnsiString RailwayTi
         }
     }
 
-    ShowMessage("时刻表【导出】成功！" + ShortTTName +
-                "");
+//    ShowMessage("Creates two timetables named " + ShortTTName +
+//                " in the 'Formatted timetables' folder, one in service order in '.csv' format, and one in chronological order in '.txt' format");
 
     Screen->Cursor = TCursor(-11); // Hourglass
 
