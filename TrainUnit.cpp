@@ -499,7 +499,7 @@ void TTrain::PlotStartPosition(int Caller)
 /* Move check to AddTrain, also, now that can start on bridges need to check that other train is on same track before refusing
           if((Track->TrackElementAt(182, LeadElement).TrainIDOnElement > -1) || ((MidElement > -1) && (Track->TrackElementAt(183, MidElement).TrainIDOnElement > -1)))
           {
-          ShowMessage("Can't place train " + HeadCode + "; another train already present at location");
+//          ShowMessage("Can't place train " + HeadCode + "; another train already present at location");
           Utilities->CallLogPop(651);
           return false;
           }
@@ -9896,7 +9896,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
             }
             if(OneLine.Length() > 9999)
             {
-                TimetableMessage(GiveMessages, "Timetable contains a line that is too long - 10,000 or more characters!");
+//                TimetableMessage(GiveMessages, "Timetable contains a line that is too long - 10,000 or more characters!");
                 TTBLFile.close();
                 delete[] TrainTimetableString;
                 Utilities->CallLogPop(789);
@@ -9927,7 +9927,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
     } // if(TTBLFile.is_open())
     else
     {
-        TimetableMessage(GiveMessages, "Failed to open timetable file, make sure it's spelled correctly, it exists and isn't open in another application");
+//        TimetableMessage(GiveMessages, "Failed to open timetable file, make sure it's spelled correctly, it exists and isn't open in another application");
         Utilities->CallLogPop(2154);
         return(false);
     }
@@ -10206,7 +10206,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
         // check if zero length & fail if so
         if(NewRemainder == "")
         {
-            TimetableMessage(GiveMessages, "Error in timetable - no events following train: '" + OneLine + "'");
+//            TimetableMessage(GiveMessages, "Error in timetable - no events following train: '" + OneLine + "'");
             Utilities->CallLogPop(769);
             return(false);
         }
@@ -10276,14 +10276,14 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 // check if warning for Frh or Fjo & reject
                 if(Warning && (Second == "Frh"))
                 {
-                    TimetableMessage(GiveMessages, "Error in line - '" + OneEntry + "': warnings cannot be given for 'Frh' events");
+//                    TimetableMessage(GiveMessages, "Error in line - '" + OneEntry + "': warnings cannot be given for 'Frh' events");
                     Utilities->CallLogPop(1793);
                     return(false);
                 }
                 if(Warning && (Second == "Fjo"))
                 {
-                    TimetableMessage(GiveMessages, "Error in line - '" + OneEntry +
-                                     "': warnings cannot be given for 'Fjo' events, for a train join warning add a 'W' prefix to the 'jbo' event");
+//                    TimetableMessage(GiveMessages, "Error in line - '" + OneEntry +
+//                                     "': warnings cannot be given for 'Fjo' events, for a train join warning add a 'W' prefix to the 'jbo' event");
                     Utilities->CallLogPop(1794);
                     return(false);
                 }
@@ -10291,7 +10291,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 {
                     if(SequenceType != Start)
                     {
-                        TimetableMessage(GiveMessages, "Error in timetable - First event not a start event: '" + OneEntry + "'");
+//                        TimetableMessage(GiveMessages, "Error in timetable - First event not a start event: '" + OneEntry + "'");
                         Utilities->CallLogPop(784);
                         return(false);
                     }
@@ -10299,9 +10299,9 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                     {
                         if(NewRemainder[1] != 'R')
                         {
-                            TimetableMessage(GiveMessages,
-                                             "Error in timetable - the only event that can follow a train created under signaller control is a repeat, see '" +
-                                             OneEntry + "'");
+//                            TimetableMessage(GiveMessages,
+//                                             "Error in timetable - the only event that can follow a train created under signaller control is a repeat, see '" +
+//                                             OneEntry + "'");
                             Utilities->CallLogPop(787);
                             return(false);
                         }
@@ -10324,8 +10324,8 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                     {
                         if(HeadCode == "")
                         {
-                            TimetableMessage(GiveMessages, "Error in timetable - headcode missing before 'Sfs', 'Sns', 'Sns-sh' or 'Sns-fsh' start event: '" +
-                                             OneEntry + "'");
+//                            TimetableMessage(GiveMessages, "Error in timetable - headcode missing before 'Sfs', 'Sns', 'Sns-sh' or 'Sns-fsh' start event: '" +
+//                                             OneEntry + "'");
                             Utilities->CallLogPop(788);
                             return(false);
                         }
@@ -10485,7 +10485,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 if((FinishFlag) && (OneEntry[1] != 'R'))
                 // already had a finish entry
                 {
-                    TimetableMessage(GiveMessages, "Error in timetable - Last event = '" + OneEntry + "'. An earlier finish event has been found with something other than a repeat following it - only a repeat can follow a finish event.");
+//                    TimetableMessage(GiveMessages, "Error in timetable - Last event = '" + OneEntry + "'. An earlier finish event has been found with something other than a repeat following it - only a repeat can follow a finish event.");
                     Utilities->CallLogPop(79);
                     return(false);
                 }
@@ -11089,7 +11089,7 @@ bool TTrainController::CheckAndPopulateListOfIDs(int Caller, AnsiString IDSet, T
 
     if(IDSet.Length() == 0)
     {
-        TimetableMessage(GiveMessages, "Must have at least one exit element ID following 'Fer'");
+//        TimetableMessage(GiveMessages, "Must have at least one exit element ID following 'Fer'");
         Utilities->CallLogPop(1521);
         return(false);
     }
@@ -11127,7 +11127,7 @@ bool TTrainController::CheckAndPopulateListOfIDs(int Caller, AnsiString IDSet, T
         {
             if(Track->TrackElementAt(722, VecPos).TrackType != Continuation)
             {
-                TimetableMessage(GiveMessages, "The element ID '" + CurrentID + "' following 'Fer' is not an exit");
+//                TimetableMessage(GiveMessages, "The element ID '" + CurrentID + "' following 'Fer' is not an exit");
                 Utilities->CallLogPop(1524);
                 return(false);
             }
@@ -11140,7 +11140,7 @@ bool TTrainController::CheckAndPopulateListOfIDs(int Caller, AnsiString IDSet, T
                     {
                         if(*ELIT == VecPos)
                         {
-                            TimetableMessage(GiveMessages, "The element ID '" + CurrentID + "' following 'Fer' duplicates an earlier element");
+//                            TimetableMessage(GiveMessages, "The element ID '" + CurrentID + "' following 'Fer' duplicates an earlier element");
                             Utilities->CallLogPop(1532);
                             return(false);
                         }
@@ -11470,7 +11470,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     // deal with SignallerSpeed
     if(SignallerSpeedStr == "")
     {
-        TimetableMessage(GiveMessages, "Signaller speed not set in '" + TrainInfoStr + "', either set a value or remove the extra semicolon");
+//        TimetableMessage(GiveMessages, "Signaller speed not set in '" + TrainInfoStr + "', either set a value or remove the extra semicolon");
         Utilities->CallLogPop(1771);
         return(false);
     }
@@ -11478,7 +11478,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((SignallerSpeedStr[x] < '0') || (SignallerSpeedStr[x] > '9'))
         {
-            TimetableMessage(GiveMessages, "Signaller speed contains invalid characters in '" + TrainInfoStr + "'");
+//            TimetableMessage(GiveMessages, "Signaller speed contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(1769);
             return(false);
         }
@@ -11489,7 +11489,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         SignallerSpeed = TTrain::MaximumSpeedLimit;
         if(!SigSHigh)
         {
-            TimetableMessage(GiveMessages, "Signaller speed > 400km/h in '" + TrainInfoStr + "'.  Setting it to 400km/h");
+//            TimetableMessage(GiveMessages, "Signaller speed > 400km/h in '" + TrainInfoStr + "'.  Setting it to 400km/h");
             SigSHigh = true;
         }
     }
@@ -11499,7 +11499,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         SignallerSpeed = 10;
         if(!SigSLow)
         {
-            TimetableMessage(GiveMessages, "Signaller speed can't be less than 10km/h in '" + TrainInfoStr + "', it will be set to 10km/h");
+//            TimetableMessage(GiveMessages, "Signaller speed can't be less than 10km/h in '" + TrainInfoStr + "', it will be set to 10km/h");
             SigSLow = true;
         }
         // Utilities->CallLogPop(1770);
@@ -11519,7 +11519,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     Utilities->CallLog.push_back(Utilities->TimeStamp() + "," + AnsiString(Caller) + ",SplitRepeat," + OneEntry);
     if(OneEntry.Length() < 7)
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
         Utilities->CallLogPop(865);
         return(false);
     }
@@ -11534,13 +11534,13 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     }
     if(SemiColonCount != 3)
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
         Utilities->CallLogPop(866);
         return(false);
     }
     if((OneEntry[1] != 'R') || (OneEntry[2] != ';'))
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - should be 'R;m;d;n'");
         Utilities->CallLogPop(867);
         return(false);
     }
@@ -11555,14 +11555,14 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MinutesStr == "")
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - minute increment segment missing");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - minute increment segment missing");
         Utilities->CallLogPop(868);
         return(false);
     }
     if(MinutesStr.Length() > 3)
     // added for v2.3.1 following Albie Vowles' reported error in repeat value 03/02/20
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - minute value too high, maximum value is 999");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - minute value too high, maximum value is 999");
         Utilities->CallLogPop(2119);
         return(false);
     }
@@ -11570,7 +11570,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     {
         if((MinutesStr[x] < '0') || (MinutesStr[x] > '9'))
         {
-            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in minute increment segment");
+//            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in minute increment segment");
             Utilities->CallLogPop(869);
             return(false);
         }
@@ -11578,7 +11578,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     RearStartOrRepeatMins = MinutesStr.ToInt();
     if(RearStartOrRepeatMins == 0)
     {
-        TimetableMessage(GiveMessages, "Repeat minute increment is zero in:  '" + OneEntry + "' - can't have a zero value");
+//        TimetableMessage(GiveMessages, "Repeat minute increment is zero in:  '" + OneEntry + "' - can't have a zero value");
         Utilities->CallLogPop(870);
         return(false);
     }
@@ -11588,7 +11588,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(DigitsStr == "")
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - headcode increment segment missing");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - headcode increment segment missing");
         Utilities->CallLogPop(871);
         return(false);
     }
@@ -11596,14 +11596,14 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     {
         if((DigitsStr[x] < '0') || (DigitsStr[x] > '9'))
         {
-            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in headcode increment segment");
+//            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in headcode increment segment");
             Utilities->CallLogPop(872);
             return(false);
         }
     }
     if(DigitsStr.Length() > 2)
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - maximum number of digits for headcode increment is 2");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - maximum number of digits for headcode increment is 2");
         Utilities->CallLogPop(873);
         return(false);
     }
@@ -11612,7 +11612,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
       route rather than the service
       if(FrontStartOrRepeatDigits == 0)
       {
-      TimetableMessage(GiveMessages, "Repeat headcode increment is zero in:  '" + OneEntry + "' - can't have a zero value");
+//      TimetableMessage(GiveMessages, "Repeat headcode increment is zero in:  '" + OneEntry + "' - can't have a zero value");
       Utilities->CallLogPop(874);
       return false;
       }
@@ -11620,8 +11620,8 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     if(!Last2CharactersBothDigits(0, ServiceReference) && (FrontStartOrRepeatDigits > 0))
     // new for v0.6b for unrestricted headcodes
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry +
-                         "' - a repeating service with incrementing digits must have digits as its last two headcode characters");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry +
+//                         "' - a repeating service with incrementing digits must have digits as its last two headcode characters");
         Utilities->CallLogPop(1889);
         return(false);
     }
@@ -11629,14 +11629,14 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
 
     if(NumberStr == "")
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - number of repeats missing");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - number of repeats missing");
         Utilities->CallLogPop(875);
         return(false);
     }
     if(NumberStr.Length() > 4)
     // added for v2.3.1 following Albie Vowles' reported error 03/02/20
     {
-        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - repeat value too high, no timetabled event can exceed 95 hours & 59 minutes");
+//        TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - repeat value too high, no timetabled event can exceed 95 hours & 59 minutes");
         Utilities->CallLogPop(2118);
         return(false);
     }
@@ -11645,7 +11645,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
         if((NumberStr[x] < '0') || (NumberStr[x] > '9'))
         // catches negative numbers
         {
-            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in number of repeats");
+//            TimetableMessage(GiveMessages, "Error in repeat: '" + OneEntry + "' - non-digit character in number of repeats");
             Utilities->CallLogPop(876);
             return(false);
         }
@@ -11653,7 +11653,7 @@ bool TTrainController::SplitRepeat(int Caller, AnsiString OneEntry, int &RearSta
     NumberOfRepeats = NumberStr.ToInt();
     if(NumberOfRepeats == 0)
     {
-        TimetableMessage(GiveMessages, "Number of repeats is zero in:  '" + OneEntry + "' - if no repeats are needed the repeat should be omitted");
+//        TimetableMessage(GiveMessages, "Number of repeats is zero in:  '" + OneEntry + "' - if no repeats are needed the repeat should be omitted");
         Utilities->CallLogPop(877);
         return(false);
     }
@@ -11850,7 +11850,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         const TTrainDataEntry &TDEntry = TrainDataVector.at(x);
         if(TrainDataVector.at(x).ActionVector.empty())
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - the following service has no listed events, there must be at least one: " + TDEntry.HeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - the following service has no listed events, there must be at least one: " + TDEntry.HeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1833);
             return(false);
@@ -11864,7 +11864,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         {
             if(TrainDataVector.at(x).ActionVector.size() == 1)
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - service must have a start event and at least one other for: " + TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages, "Error in timetable - service must have a start event and at least one other for: " + TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(1822);
                 return(false);
@@ -11879,9 +11879,9 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         {
             if(TrainDataVector.at(x).ActionVector.size() > 2)
             {
-                SecondPassMessage(GiveMessages,
-                                  "Error in timetable - a signaller control service can have no more than one item (a repeat) after the start event, see: " +
-                                  TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages,
+//                                  "Error in timetable - a signaller control service can have no more than one item (a repeat) after the start event, see: " +
+//                                  TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(1837);
                 return(false);
@@ -11891,8 +11891,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 TActionVectorEntry AVEntry1 = TrainDataVector.at(x).ActionVector.at(1);
                 if(AVEntry1.FormatType != Repeat)
                 {
-                    SecondPassMessage(GiveMessages,
-                                      "Error in timetable - a signaller control service cannot have any other than a repeat after the start event, see: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages,
+//                                      "Error in timetable - a signaller control service cannot have any other than a repeat after the start event, see: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1838);
                     return(false);
@@ -11906,7 +11906,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         TActionVectorEntry AVEntry0 = TrainDataVector.at(x).ActionVector.at(0);
         if(AVEntry0.SequenceType != Start)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - the first event must be a start for: " + TDEntry.HeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - the first event must be a start for: " + TDEntry.HeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1824);
             return(false);
@@ -11919,8 +11919,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             // must be a second entry if first not signallercontrol
             if((AVEntry1.SequenceType == Finish) && ((AVEntry1.Command == "Fns-sh") || (AVEntry1.Command == "Frh-sh")))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - finish events Fns-sh and Frh-sh not permitted immediately after an Snt entry for: " +
-                                  TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages, "Error in timetable - finish events Fns-sh and Frh-sh not permitted immediately after an Snt entry for: " +
+//                                  TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(2046);
                 return(false);
@@ -11935,7 +11935,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             const TActionVectorEntry &AVEntry = TrainDataVector.at(x).ActionVector.at(y);
             if((AVEntry.SequenceType == Start) && (y != 0))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - a start event is present that is not the first event for: " + TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages, "Error in timetable - a start event is present that is not the first event for: " + TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(1825);
                 return(false);
@@ -11950,7 +11950,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             const TActionVectorEntry &AVEntry = TrainDataVector.at(x).ActionVector.at(y);
             if((AVEntry.FormatType == Repeat) && (y != (TrainDataVector.at(x).ActionVector.size() - 1)))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - a repeat is present that is not the last item for: " + TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages, "Error in timetable - a repeat is present that is not the last item for: " + TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(1826);
                 return(false);
@@ -11971,7 +11971,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if((AVEntry.FormatType != Repeat) && (AVEntry.SequenceType != Finish))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - the last item must be either a finish event or a repeat for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - the last item must be either a finish event or a repeat for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1827);
                     return(false);
@@ -11981,7 +11981,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     const TActionVectorEntry &LastAVEntry = TrainDataVector.at(x).ActionVector.at(y - 1);
                     if(LastAVEntry.SequenceType != Finish)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - the last event before the repeat must be a finish for: " + TDEntry.HeadCode);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - the last event before the repeat must be a finish for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(1828);
                         return(false);
@@ -12000,7 +12000,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if((y != (TrainDataVector.at(x).ActionVector.size() - 1)) && (y != (TrainDataVector.at(x).ActionVector.size() - 2)))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a finish event must be either the last or last but one for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a finish event must be either the last or last but one for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1829);
                     return(false);
@@ -12009,8 +12009,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(TrainDataVector.at(x).ActionVector.at(y + 1).FormatType != Repeat)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - the only event that can follow a finish event is a repeat for: " +
-                                          TDEntry.HeadCode);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - the only event that can follow a finish event is a repeat for: " +
+//                                          TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(1830);
                         return(false);
@@ -12068,7 +12068,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(AVEntry0.Command == "Snt-sh")
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - 'Snt-sh' event not at stop location for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - 'Snt-sh' event not at stop location for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1042);
                     return(false);
@@ -12096,8 +12096,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             // at least 2 entries present checked in integrity check so (1) valid
             if(!AtLocSuccessor(AVEntry1))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - 'Sfs', 'Sns', 'Sns-sh' or 'Sns-fsh' followed by an illegal event for: " +
-                                  TDEntry.HeadCode + ". The event isn't valid for a stationary train.");
+//                SecondPassMessage(GiveMessages, "Error in timetable - 'Sfs', 'Sns', 'Sns-sh' or 'Sns-fsh' followed by an illegal event for: " +
+//                                  TDEntry.HeadCode + ". The event isn't valid for a stationary train.");
                 TrainDataVector.clear();
                 Utilities->CallLogPop(793);
                 return(false);
@@ -12126,8 +12126,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             }
             if(!FoundFlag)
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - no location departure following an 'Sfs', 'Sns', 'Sns-sh'or 'Sns-fsh' event for: " +
-                                  TDEntry.HeadCode);
+//                SecondPassMessage(GiveMessages, "Error in timetable - no location departure following an 'Sfs', 'Sns', 'Sns-sh'or 'Sns-fsh' event for: " +
+//                                  TDEntry.HeadCode);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(851);
                 return(false);
@@ -12147,8 +12147,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 if(AVEntry.LocationName == "")
                 // if TimeLoc turns out to be a TimeLoc departure then will emerge & be rejected in successor checks for TimeLocs
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable for " + TDEntry.HeadCode +
-                                      ": an event should have had a location name associated with it but it could not be found");
+//                    SecondPassMessage(GiveMessages, "Error in timetable for " + TDEntry.HeadCode +
+//                                      ": an event should have had a location name associated with it but it could not be found");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1831);
                     return(false);
@@ -12186,7 +12186,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(TrainDataVector.at(x).ActionVector.at(y + 1).FormatType != Repeat)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - only a repeat can follow a finish entry for: " + TDEntry.HeadCode);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - only a repeat can follow a finish entry for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(798);
                         return(false);
@@ -12198,7 +12198,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 if(y != (TrainDataVector.at(x).ActionVector.size() - 1))
                 // i.e has to be the last
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - F-nshs (shuttle link) must be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - F-nshs (shuttle link) must be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1049);
                     return(false);
@@ -12208,7 +12208,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a 'pas' can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a 'pas' can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1518);
                     return(false);
@@ -12218,7 +12218,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a 'jbo' can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a 'jbo' can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(800);
                     return(false);
@@ -12226,8 +12226,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a jbo event is followed by an illegal event for: " + TDEntry.HeadCode +
-                                      ". The event isn't valid for a stationary train.");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a jbo event is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a stationary train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(801);
                     return(false);
@@ -12237,7 +12237,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a train split can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a train split can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(802);
                     return(false);
@@ -12245,8 +12245,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!AtLocSuccessor(AVEntry2))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a train split is followed by an illegal event for: " + TDEntry.HeadCode +
-                                      ". The event isn't valid for a stationary train.");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a train split is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a stationary train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(803);
                     return(false);
@@ -12256,7 +12256,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a 'cdt' can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a 'cdt' can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(804);
                     return(false);
@@ -12275,7 +12275,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(806);
                     return(false);
@@ -12294,7 +12294,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a pass time can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a pass time can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1530);
                     return(false);
@@ -12302,8 +12302,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 const TActionVectorEntry &AVEntry2 = TrainDataVector.at(x).ActionVector.at(y + 1);
                 if(!MovingSuccessor(AVEntry2))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a pass time is followed by an illegal event for: " + TDEntry.HeadCode +
-                                      ". The event isn't valid for a moving train.");
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a pass time is followed by an illegal event for: " + TDEntry.HeadCode +
+//                                      ". The event isn't valid for a moving train.");
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1531);
                     return(false);
@@ -12313,7 +12313,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y != (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat is not the last item for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat is not the last item for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(808);
                     return(false);
@@ -12397,7 +12397,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(809);
                     return(false);
@@ -12417,7 +12417,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(y >= (TrainDataVector.at(x).ActionVector.size() - 1))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a timed departure can't be the last event for: " + TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed departure can't be the last event for: " + TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(811);
                     return(false);
@@ -12516,8 +12516,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 }
                 if(AVEntry.ArrivalTime < CurrentTime)
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure has too early an arrival time for: " +
-                                      TDEntry.HeadCode);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a timed arrival and departure has too early an arrival time for: " +
+//                                      TDEntry.HeadCode);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(814);
                     return(false);
@@ -12595,8 +12595,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.LocationName != LastLocationName)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
-                                          AVEntry.Command);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
+//                                          AVEntry.Command);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(823);
                         return(false);
@@ -12607,8 +12607,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.LocationName != LastLocationName)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
-                                          AVEntry.Command);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
+//                                          AVEntry.Command);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(824);
                         return(false);
@@ -12639,8 +12639,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     }
                     else if(!LastEntryIsAnArrival && (AVEntry.LocationName == LastLocationName))
                     {
-                        SecondPassMessage(GiveMessages,
-                                          "Error in timetable - a location event for a timed arrival is the same as the earlier departure location for: " + TDEntry.HeadCode);
+//                        SecondPassMessage(GiveMessages,
+//                                          "Error in timetable - a location event for a timed arrival is the same as the earlier departure location for: " + TDEntry.HeadCode);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(827);
                         return(false);
@@ -12666,8 +12666,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.LocationName != LastLocationName)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
-                                          AVEntry.Command);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
+//                                          AVEntry.Command);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(828);
                         return(false);
@@ -12678,8 +12678,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 {
                     if(AVEntry.LocationName != LastLocationName)
                     {
-                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
-                                          AVEntry.Command);
+//                        SecondPassMessage(GiveMessages, "Error in timetable - a location event is inconsistent for: " + TDEntry.HeadCode + " && " +
+//                                          AVEntry.Command);
                         TrainDataVector.clear();
                         Utilities->CallLogPop(829);
                         return(false);
@@ -12710,8 +12710,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                     }
                     if(!LastEntryIsAnArrival && (AVEntry.LocationName == LastLocationName) && !TwoOrMoreLocationsWarningGiven)
                     {
-                        SecondPassMessage(GiveMessages,
-                                          "A location event for a timed arrival is the same as the earlier departure location for: " + TDEntry.HeadCode + ". Please correct if this is an error.\n\nThis warning will not be shown again.");
+//                        SecondPassMessage(GiveMessages,
+//                                          "A location event for a timed arrival is the same as the earlier departure location for: " + TDEntry.HeadCode + ". Please correct if this is an error.\n\nThis warning will not be shown again.");
                         TwoOrMoreLocationsWarningGiven = true;
 //                        TrainDataVector.clear();
 //                        Utilities->CallLogPop(832);
@@ -13007,7 +13007,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(Track->ContinuationNameMap.find(LocName) != Track->ContinuationNameMap.end())
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - continuation names (" + LocName + ") must not be included, see service " + HC);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - continuation names (" + LocName + ") must not be included, see service " + HC);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1578);
                     return(false);
@@ -13036,7 +13036,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
             {
                 if(((double)GetRepeatTime(32, TrainDataVector.at(x).ActionVector.at(y).EventTime, NumRepeats, IncMinutes) >= 3.9994))
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat time exceeds 95h 59m, see service " + HC); // 3d 23h 59m = 3.9993055556
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat time exceeds 95h 59m, see service " + HC); // 3d 23h 59m = 3.9993055556
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1818);
                     return(false);
@@ -13047,7 +13047,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 if(((double)GetRepeatTime(33, TrainDataVector.at(x).ActionVector.at(y).EventTime, NumRepeats, IncMinutes) >= 3.9994))
                 // 3d 23h 59m = 3.9993055556
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat entry time exceeds 95h 59m, see service " + HC);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat entry time exceeds 95h 59m, see service " + HC);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1819);
                     return(false);
@@ -13058,7 +13058,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
                 if(((double)GetRepeatTime(34, TrainDataVector.at(x).ActionVector.at(y).EventTime, NumRepeats, IncMinutes) >= 3.9994))
                 // 3d 23h 59m = 3.9993055556
                 {
-                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat entry time exceeds 95h 59m, see service " + HC);
+//                    SecondPassMessage(GiveMessages, "Error in timetable - a repeat entry time exceeds 95h 59m, see service " + HC);
                     TrainDataVector.clear();
                     Utilities->CallLogPop(1820);
                     return(false);
@@ -13123,7 +13123,7 @@ bool TTrainController::CheckForDuplicateCrossReferences(int Caller, AnsiString M
 
     if(MainHeadCode == SecondHeadCode)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - Service " + MainHeadCode + " has an event that references itself");
+//        SecondPassMessage(GiveMessages, "Error in timetable - Service " + MainHeadCode + " has an event that references itself");
         TrainDataVector.clear();
         Utilities->CallLogPop(1594);
         return(false);
@@ -13157,8 +13157,8 @@ bool TTrainController::CheckForDuplicateCrossReferences(int Caller, AnsiString M
     if(ForwardCount > 2)
     // can have 2 if one is Sns-sh linking from another leg of the shuttle, and Fns links out to that same leg
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than two references to " + SecondHeadCode + " from a train whose headcode is " +
-                          MainHeadCode + ". Check the service cross references from each service, and check whether one or other service is listed twice or more.");
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than two references to " + SecondHeadCode + " from a train whose headcode is " +
+//                          MainHeadCode + ". Check the service cross references from each service, and check whether one or other service is listed twice or more.");
         TrainDataVector.clear();
         Utilities->CallLogPop(1587);
         return(false);
@@ -13194,16 +13194,16 @@ bool TTrainController::CheckForDuplicateCrossReferences(int Caller, AnsiString M
     if(ReverseCount > 2)
     // can have 2 if one is a second shuttle leg with a link in from Fns, and it links out to the same service with Fxx-sh
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than two references to " + MainHeadCode + " from a train whose headcode is " +
-                          SecondHeadCode + ". Check the service cross references from each service, and check whether one or other service is listed twice or more.");
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than two references to " + MainHeadCode + " from a train whose headcode is " +
+//                          SecondHeadCode + ". Check the service cross references from each service, and check whether one or other service is listed twice or more.");
         TrainDataVector.clear();
         Utilities->CallLogPop(1589);
         return(false);
     }
     if(ForwardCount != ReverseCount)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - " + MainHeadCode + " has a different number of references to " + SecondHeadCode +
-                          " than the other way round");
+//        SecondPassMessage(GiveMessages, "Error in timetable - " + MainHeadCode + " has a different number of references to " + SecondHeadCode +
+//                          " than the other way round");
         TrainDataVector.clear();
         Utilities->CallLogPop(1610);
         return(false);
@@ -13281,8 +13281,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     }
     if(ForwardCount > 1)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + OtherHeadCode + " from a train whose headcode is " +
-                          MainHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + OtherHeadCode + " from a train whose headcode is " +
+//                          MainHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(836);
         return(false);
@@ -13322,15 +13322,15 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
 
     if(ReverseCount == 0)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - cross reference missing in either " + MainHeadCode + " or " + OtherHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - cross reference missing in either " + MainHeadCode + " or " + OtherHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(837);
         return(false);
     }
     if(ReverseCount > 1)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + MainHeadCode + " from a train whose headcode is " +
-                          OtherHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + MainHeadCode + " from a train whose headcode is " +
+//                          OtherHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(838);
         return(false);
@@ -13343,30 +13343,30 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
 
     if(Shuttle && MainTrainDataPtr->ActionVector.back().FormatType != Repeat)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + MainHeadCode + " does not have a repeat");
+//        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + MainHeadCode + " does not have a repeat");
         TrainDataVector.clear();
         Utilities->CallLogPop(1058);
         return(false);
     }
     if(Shuttle && OtherTrainDataPtr->ActionVector.back().FormatType != Repeat)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + OtherHeadCode + " does not have a repeat");
+//        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + OtherHeadCode + " does not have a repeat");
         TrainDataVector.clear();
         Utilities->CallLogPop(1059);
         return(false);
     }
     if(ForwardEntryPtr->LocationName == "")
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + OtherHeadCode +
-                          ".  One or other service does not have a location set");
+//        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + OtherHeadCode +
+//                          ".  One or other service does not have a location set");
         TrainDataVector.clear();
         Utilities->CallLogPop(526);
         return(false);
     }
     if(ReverseEntryPtr->LocationName == "")
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + OtherHeadCode +
-                          ".  One or other service does not have a location set");
+//        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + OtherHeadCode +
+//                          ".  One or other service does not have a location set");
         TrainDataVector.clear();
         Utilities->CallLogPop(527);
         return(false);
@@ -13398,8 +13398,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(!CheckShuttleRepeatTime(0, ForwardEntryPtr->EventTime, ReverseEntryPtr->EventTime, OtherTrainDataPtr->ActionVector.back().RearStartOrRepeatMins))
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - shuttle service " + MainHeadCode +
-                              " first repeat restart time not consistent with finish service " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - shuttle service " + MainHeadCode +
+//                              " first repeat restart time not consistent with finish service " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1055);
             return(false);
@@ -13410,8 +13410,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseTDVectorNumber == ForwardTDVectorNumber)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - an 'Sfs' or 'Sns' event (" + OtherHeadCode +
-                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - an 'Sfs' or 'Sns' event (" + OtherHeadCode +
+//                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(528);
             return(false);
@@ -13422,8 +13422,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseTDVectorNumber == ForwardTDVectorNumber)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - an 'Fjo' event (" + OtherHeadCode +
-                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - an 'Fjo' event (" + OtherHeadCode +
+//                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(862);
             return(false);
@@ -13434,8 +13434,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseTDVectorNumber == ForwardTDVectorNumber)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - an 'Fns' event (" + OtherHeadCode +
-                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - an 'Fns' event (" + OtherHeadCode +
+//                              ") appears in the same sequence as the corresponding linked event " + MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(529);
             return(false);
@@ -13445,9 +13445,9 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if((ReverseEntryPtr->Command != "fsp") && (ReverseEntryPtr->Command != "rsp"))
         {
-            SecondPassMessage(GiveMessages,
-                              "Error in timetable - unable to find a corresponding split train event for the train that starts from a split whose headcode is " +
-                              MainHeadCode);
+//            SecondPassMessage(GiveMessages,
+//                              "Error in timetable - unable to find a corresponding split train event for the train that starts from a split whose headcode is " +
+//                              MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(530);
             return(false);
@@ -13457,8 +13457,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseEntryPtr->Command != "Sfs")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sfs' event for the train split whose headcode is " +
-                              MainHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sfs' event for the train split whose headcode is " +
+//                              MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(839);
             return(false);
@@ -13467,21 +13467,21 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
         {
             if(!(Track->TimetabledLocationNameAllocated(4, ForwardEntryPtr->LocationName)))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - can't find timetabled location '" + ForwardEntryPtr->LocationName + "' in railway - perhaps there are concourses without platforms?");
+//                SecondPassMessage(GiveMessages, "Error in timetable - can't find timetabled location '" + ForwardEntryPtr->LocationName + "' in railway - perhaps there are concourses without platforms?");
                 TrainDataVector.clear();
                 Utilities->CallLogPop(849);
                 return(false);
             }
             if(!(Track->OneNamedLocationElementAtLocation(0, ForwardEntryPtr->LocationName)))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - can't find any named location elements at '" + ForwardEntryPtr->LocationName + "' - perhaps there are concourses without platforms?");
+//                SecondPassMessage(GiveMessages, "Error in timetable - can't find any named location elements at '" + ForwardEntryPtr->LocationName + "' - perhaps there are concourses without platforms?");
                 TrainDataVector.clear();
                 Utilities->CallLogPop(850);
                 return(false);
             }
             if(!(Track->OneNamedLocationLongEnoughForSplit(0, ForwardEntryPtr->LocationName)))
             {
-                SecondPassMessage(GiveMessages, "Error in timetable - location too short to split a train at " + ForwardEntryPtr->LocationName);
+//                SecondPassMessage(GiveMessages, "Error in timetable - location too short to split a train at " + ForwardEntryPtr->LocationName);
                 TrainDataVector.clear();
                 Utilities->CallLogPop(846);
                 return(false);
@@ -13501,8 +13501,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseEntryPtr->Command != "Fns")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Fns' event for the 'Sns' train whose headcode is " +
-                              MainHeadCode + " and is formed from a service with headcode " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Fns' event for the 'Sns' train whose headcode is " +
+//                              MainHeadCode + " and is formed from a service with headcode " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(531);
             return(false);
@@ -13512,8 +13512,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseEntryPtr->Command != "Sns")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sns' event for the train whose headcode is " + MainHeadCode +
-                              " and forms a new service with headcode " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sns' event for the train whose headcode is " + MainHeadCode +
+//                              " and forms a new service with headcode " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(840);
             return(false);
@@ -13535,8 +13535,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseEntryPtr->Command != "Fjo")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Fjo' event for the train whose headcode is " + MainHeadCode +
-                              " and is joined by a train with headcode " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Fjo' event for the train whose headcode is " + MainHeadCode +
+//                              " and is joined by a train with headcode " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(841);
             return(false);
@@ -13546,8 +13546,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     {
         if(ReverseEntryPtr->Command != "jbo")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'jbo' event for the train whose headcode is " + MainHeadCode +
-                              " and joins a train with headcode " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'jbo' event for the train whose headcode is " + MainHeadCode +
+//                              " and joins a train with headcode " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(532);
             return(false);
@@ -13570,8 +13570,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
         if(!ReverseShuttleFinish)
         // (ReverseEntryPtr->Command != "Fns-sh") && (ReverseEntryPtr->Command != "Frh-sh"))
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - incorrect shuttle link to train whose headcode is " + MainHeadCode +
-                              " from train whose headcode is " + OtherHeadCode + ", has to be Fns-sh, Frh-sh");
+//            SecondPassMessage(GiveMessages, "Error in timetable - incorrect shuttle link to train whose headcode is " + MainHeadCode +
+//                              " from train whose headcode is " + OtherHeadCode + ", has to be Fns-sh, Frh-sh");
             TrainDataVector.clear();
             Utilities->CallLogPop(1056);
             return(false);
@@ -13583,8 +13583,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
         if(!ForwardShuttleFinish)
         // (ForwardEntryPtr->Command != "Fns-sh") && (ForwardEntryPtr->Command != "Frh-sh"))
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - incorrect shuttle link to train whose headcode is " + OtherHeadCode +
-                              " from train whose headcode is " + MainHeadCode + ", has to be Fns-sh, Frh-sh");
+//            SecondPassMessage(GiveMessages, "Error in timetable - incorrect shuttle link to train whose headcode is " + OtherHeadCode +
+//                              " from train whose headcode is " + MainHeadCode + ", has to be Fns-sh, Frh-sh");
             TrainDataVector.clear();
             Utilities->CallLogPop(1057);
             return(false);
@@ -13618,8 +13618,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
     }
     if((MainRepeat && !OtherRepeat) || (!MainRepeat && OtherRepeat))
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - only one repeat is provided for the train whose headcode is " + MainHeadCode +
-                          " and the associated train with headcode " + OtherHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - only one repeat is provided for the train whose headcode is " + MainHeadCode +
+//                          " and the associated train with headcode " + OtherHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(844);
         return(false);
@@ -13630,8 +13630,8 @@ bool TTrainController::CheckCrossReferencesAndSetData(int Caller, AnsiString Mai
            (MainRepeatEntry.FrontStartOrRepeatDigits != OtherRepeatEntry.FrontStartOrRepeatDigits) ||
            (MainRepeatEntry.NumberOfRepeats != OtherRepeatEntry.NumberOfRepeats))
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - repeat items don't correspond for the train whose headcode is " + MainHeadCode +
-                              " and the associated train with headcode " + OtherHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - repeat items don't correspond for the train whose headcode is " + MainHeadCode +
+//                              " and the associated train with headcode " + OtherHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(845);
             return(false);
@@ -13874,33 +13874,33 @@ bool TTrainController::CheckStartPositionValidity(int Caller, AnsiString RearEle
     // check not starting with front on a continuation
     if(FrontType == Continuation)
     {
-        TimetableMessage(GiveMessages, "Front of train attempting to start on a continuation at: " + FrontElementStr);
+//        TimetableMessage(GiveMessages, "Front of train attempting to start on a continuation at: " + FrontElementStr);
         Utilities->CallLogPop(937);
         return(false);
     }
     // check not starting on a level crossing
     if(Track->IsLCAtHV(43, FrontTrackElement.HLoc, FrontTrackElement.VLoc))
     {
-        TimetableMessage(GiveMessages, "Train attempting to start on a level crossing at: " + FrontElementStr);
+//        TimetableMessage(GiveMessages, "Train attempting to start on a level crossing at: " + FrontElementStr);
         Utilities->CallLogPop(1951);
         return(false);
     }
     if(Track->IsLCAtHV(44, RearTrackElement.HLoc, RearTrackElement.VLoc))
     {
-        TimetableMessage(GiveMessages, "Train attempting to start on a level crossing at: " + RearElementStr);
+//        TimetableMessage(GiveMessages, "Train attempting to start on a level crossing at: " + RearElementStr);
         Utilities->CallLogPop(1952);
         return(false);
     }
     // check if trying to start on diverging leg of points
     if((RearType == Points) && (RearExitPos == 3))
     {
-        TimetableMessage(GiveMessages, "Front of train attempting to start on element connected to diverging points at: " + RearElementStr);
+//        TimetableMessage(GiveMessages, "Front of train attempting to start on element connected to diverging points at: " + RearElementStr);
         Utilities->CallLogPop(936);
         return(false);
     }
     if((FrontType == Points) && (RearTrackElement.ConnLinkPos[RearExitPos] == 3))
     {
-        TimetableMessage(GiveMessages, "Rear of train attempting to start on element connected to diverging points at: " + FrontElementStr);
+//        TimetableMessage(GiveMessages, "Rear of train attempting to start on element connected to diverging points at: " + FrontElementStr);
         Utilities->CallLogPop(1808);
         return(false);
     }
@@ -14242,8 +14242,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     }
     if(ForwardCount > 1)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + NonRepeatingHeadCode + " from a train whose headcode is " +
-                          MainHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + NonRepeatingHeadCode + " from a train whose headcode is " +
+//                          MainHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(1061);
         return(false);
@@ -14270,53 +14270,53 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
 
     if(ReverseCount == 0)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - cross reference missing in either " + MainHeadCode + " or " + NonRepeatingHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - cross reference missing in either " + MainHeadCode + " or " + NonRepeatingHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(1062);
         return(false);
     }
     if(ReverseCount > 1)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + MainHeadCode + " from a train whose headcode is " +
-                          NonRepeatingHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - found more than one reference to " + MainHeadCode + " from a train whose headcode is " +
+//                          NonRepeatingHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(1063);
         return(false);
     }
     if(((ForwardEntryPtr->Command == "F-nshs") || (ForwardEntryPtr->Command == "Sns-fsh")) && (MainTrainDataPtr->ActionVector.back().FormatType == Repeat))
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - shuttle connecting train " + MainHeadCode + " shouldn't have a repeat");
+//        SecondPassMessage(GiveMessages, "Error in timetable - shuttle connecting train " + MainHeadCode + " shouldn't have a repeat");
         TrainDataVector.clear();
         Utilities->CallLogPop(1064);
         return(false);
     }
     if((ForwardEntryPtr->Command != "F-nshs") && (ForwardEntryPtr->Command != "Sns-fsh") && (MainTrainDataPtr->ActionVector.back().FormatType != Repeat))
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + MainHeadCode + " does not have a repeat item");
+//        SecondPassMessage(GiveMessages, "Error in timetable - shuttle train " + MainHeadCode + " does not have a repeat item");
         TrainDataVector.clear();
         Utilities->CallLogPop(1065);
         return(false);
     }
     if(ForwardEntryPtr->LocationName == "")
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + NonRepeatingHeadCode +
-                          ".  One or other service does not have a location set");
+//        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + NonRepeatingHeadCode +
+//                          ".  One or other service does not have a location set");
         TrainDataVector.clear();
         Utilities->CallLogPop(1066);
         return(false);
     }
     if(ReverseEntryPtr->LocationName == "")
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + NonRepeatingHeadCode +
-                          ".  One or other service does not have a location set");
+//        SecondPassMessage(GiveMessages, "Error in timetable - location error in cross referenced trains " + MainHeadCode + " and " + NonRepeatingHeadCode +
+//                          ".  One or other service does not have a location set");
         TrainDataVector.clear();
         Utilities->CallLogPop(1067);
         return(false);
     }
     if(ForwardEntryPtr->LocationName != ReverseEntryPtr->LocationName)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - cross referenced train " + NonRepeatingHeadCode +
-                          " is at a different location to the referencing train " + MainHeadCode);
+//        SecondPassMessage(GiveMessages, "Error in timetable - cross referenced train " + NonRepeatingHeadCode +
+//                          " is at a different location to the referencing train " + MainHeadCode);
         TrainDataVector.clear();
         Utilities->CallLogPop(1068);
         return(false);
@@ -14326,8 +14326,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ForwardEntryPtr->EventTime != ReverseEntryPtr->EventTime)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - shuttle in-link service " + MainHeadCode +
-                              " finish time not consistent with start time of shuttle service " + NonRepeatingHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - shuttle in-link service " + MainHeadCode +
+//                              " finish time not consistent with start time of shuttle service " + NonRepeatingHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1069);
             return(false);
@@ -14339,8 +14339,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         if(!CheckNonRepeatingShuttleLinkTime(0, ForwardEntryPtr->EventTime, ReverseEntryPtr->EventTime,
                                              MainTrainDataPtr->ActionVector.back().RearStartOrRepeatMins, MainTrainDataPtr->ActionVector.back().NumberOfRepeats))
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - service " + NonRepeatingHeadCode + ", which links out from shuttle service " + MainHeadCode +
-                              ", has the wrong start time.  It should correspond to the finish time of the last shuttle.");
+//            SecondPassMessage(GiveMessages, "Error in timetable - service " + NonRepeatingHeadCode + ", which links out from shuttle service " + MainHeadCode +
+//                              ", has the wrong start time.  It should correspond to the finish time of the last shuttle.");
             TrainDataVector.clear();
             Utilities->CallLogPop(1070);
             return(false);
@@ -14351,8 +14351,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ReverseTDVectorNumber == ForwardTDVectorNumber)
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - the non repeating link service " + NonRepeatingHeadCode +
-                              " appears in the same sequence as the corresponding shuttle service " + MainHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - the non repeating link service " + NonRepeatingHeadCode +
+//                              " appears in the same sequence as the corresponding shuttle service " + MainHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1071);
             return(false);
@@ -14363,7 +14363,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
       {
       if((MainTrainDataPtr->Description != "") && (OtherTrainDataPtr->Description != "") && (MainTrainDataPtr->Description != OtherTrainDataPtr->Description))
       {
-      SecondPassMessage(GiveMessages, "Error in timetable - the non repeating link service " + NonRepeatingHeadCode + " has a different description to the corresponding shuttle service " + MainHeadCode);
+//      SecondPassMessage(GiveMessages, "Error in timetable - the non repeating link service " + NonRepeatingHeadCode + " has a different description to the corresponding shuttle service " + MainHeadCode);
       TrainDataVector.clear();
       Utilities->CallLogPop(1072);
       return false;
@@ -14374,8 +14374,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ReverseEntryPtr->Command != "F-nshs")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'F-nshs' event for the 'Sns-sh' train whose headcode is " +
-                              MainHeadCode + " and is a new shuttle service formed from the service with headcode " + NonRepeatingHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'F-nshs' event for the 'Sns-sh' train whose headcode is " +
+//                              MainHeadCode + " and is a new shuttle service formed from the service with headcode " + NonRepeatingHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1073);
             return(false);
@@ -14385,8 +14385,8 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ReverseEntryPtr->Command != "Sns-sh")
         {
-            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sns-sh' event for the 'F-nshs' train whose headcode is " +
-                              MainHeadCode + " and forms a new shuttle service with headcode " + NonRepeatingHeadCode);
+//            SecondPassMessage(GiveMessages, "Error in timetable - unable to find a corresponding 'Sns-sh' event for the 'F-nshs' train whose headcode is " +
+//                              MainHeadCode + " and forms a new shuttle service with headcode " + NonRepeatingHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1074);
             return(false);
@@ -14408,9 +14408,9 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ReverseEntryPtr->Command != "Fns-sh")
         {
-            SecondPassMessage(GiveMessages,
-                              "Error in timetable - unable to find a corresponding 'Fns-sh' event for the 'Sns-fsh' non-shuttle service whose headcode is " + MainHeadCode +
-                              " formed from a shuttle service with headcode " + NonRepeatingHeadCode);
+//            SecondPassMessage(GiveMessages,
+//                              "Error in timetable - unable to find a corresponding 'Fns-sh' event for the 'Sns-fsh' non-shuttle service whose headcode is " + MainHeadCode +
+//                              " formed from a shuttle service with headcode " + NonRepeatingHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1075);
             return(false);
@@ -14420,9 +14420,9 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
     {
         if(ReverseEntryPtr->Command != "Sns-fsh")
         {
-            SecondPassMessage(GiveMessages,
-                              "Error in timetable - unable to find a corresponding 'Sns-fsh' event for the 'Fns-sh' shuttle service whose headcode is " + MainHeadCode +
-                              " and forms a new non-shuttle service with headcode " + NonRepeatingHeadCode);
+//            SecondPassMessage(GiveMessages,
+//                              "Error in timetable - unable to find a corresponding 'Sns-fsh' event for the 'Fns-sh' shuttle service whose headcode is " + MainHeadCode +
+//                              " and forms a new non-shuttle service with headcode " + NonRepeatingHeadCode);
             TrainDataVector.clear();
             Utilities->CallLogPop(1076);
             return(false);
@@ -14490,7 +14490,7 @@ bool TTrainController::CheckShuttleServiceIntegrity(int Caller, TTrainDataEntry 
 
     if((LastActionCommand != "Fns") && (LastActionCommand != "Fns-sh") && (LastActionCommand != "Frh-sh"))
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - last event in shuttle service " + TDEntryPtr->HeadCode + " is not 'Fns', 'Fns-sh' or 'Frh-sh'");
+//        SecondPassMessage(GiveMessages, "Error in timetable - last event in shuttle service " + TDEntryPtr->HeadCode + " is not 'Fns', 'Fns-sh' or 'Frh-sh'");
         TrainDataVector.clear();
         Utilities->CallLogPop(1091);
         return(false);
@@ -14501,9 +14501,9 @@ bool TTrainController::CheckShuttleServiceIntegrity(int Caller, TTrainDataEntry 
         LastActionCommand = (TDEntryPtr->ActionVector.end() - 2)->Command;
         if((LastActionCommand != "Fns") && (LastActionCommand != "Fns-sh") && (LastActionCommand != "Frh-sh"))
         {
-            SecondPassMessage(GiveMessages,
-                              "Error in timetable - last event in a continuation shuttle service (i.e links back to a shuttle) whose headcode is " + TDEntryPtr->HeadCode +
-                              " is not 'Fns', 'Fns-sh' or 'Frh-sh'");
+//            SecondPassMessage(GiveMessages,
+//                              "Error in timetable - last event in a continuation shuttle service (i.e links back to a shuttle) whose headcode is " + TDEntryPtr->HeadCode +
+//                              " is not 'Fns', 'Fns-sh' or 'Frh-sh'");
             TrainDataVector.clear();
             Utilities->CallLogPop(1092);
             return(false);
@@ -14512,9 +14512,9 @@ bool TTrainController::CheckShuttleServiceIntegrity(int Caller, TTrainDataEntry 
     // exit the 'while' with LastActionCommand FSH-XX
     if((TDEntryPtr->ActionVector.end() - 2)->LinkedTrainEntryPtr != ShuttleStartAddress)
     {
-        SecondPassMessage(GiveMessages, "Error in timetable - the event that ends service " + TDEntryPtr->HeadCode +
-                          " is a shuttle finish, but it doesn't link back to the start of the original shuttle starting service " + OriginalHeadCode +
-                          ".  The linking of two or more shuttles is not permitted.");
+//        SecondPassMessage(GiveMessages, "Error in timetable - the event that ends service " + TDEntryPtr->HeadCode +
+//                          " is a shuttle finish, but it doesn't link back to the start of the original shuttle starting service " + OriginalHeadCode +
+//                          ".  The linking of two or more shuttles is not permitted.");
         TrainDataVector.clear();
         Utilities->CallLogPop(1093);
         return(false);
@@ -14838,7 +14838,7 @@ void TTrainController::SaveTrainDataVectorToFile(int Caller) // test
 
     if(OutFile == 0)
     {
-        ShowMessage("Output file TrainData.csv failed to open");
+//        ShowMessage("Output file TrainData.csv failed to open");
         Utilities->CallLogPop(1372);
         return;
     }
@@ -16171,7 +16171,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
 
         if(TestFile == 0)
         {
-            ShowMessage("TestFile failed to open - can't be created");
+//            ShowMessage("TestFile failed to open - can't be created");
             Utilities->CallLogPop();
             return false;
         }
@@ -16193,7 +16193,7 @@ Note:  Any shuttle start can have any finish - feeder and finish, neither, feede
         //initialise variables before calc LastTTTime & build LocServiceTimesVector
         if(TrainDataVector.empty())
         {
-            ShowMessage("Unable to create a program-readable timetable - please check the timetable file validity");
+//            ShowMessage("Unable to create a program-readable timetable - please check the timetable file validity");
             Utilities->CallLogPop(2209);
             return(false);
         }
@@ -16720,13 +16720,13 @@ j) all other finish entries (all link to another service) are ignored as will be
 
         if(TTFile3 == 0)
         {
-            ShowMessage("Conflict Analysis file failed to open - can't be created");
+//            ShowMessage("Conflict Analysis file failed to open - can't be created");
             Utilities->CallLogPop(2210);
             return(false);
         }
         if(LocServiceTimesVector.empty())
         {
-            ShowMessage("No timetabled services found");
+//            ShowMessage("No timetabled services found");
             TTFile3.close();
             DeleteFile(TTFileName3);
             Utilities->CallLogPop(2211);
@@ -17941,7 +17941,7 @@ different to the train's front element name (whether null or not) (no report), a
         std::ofstream TTError(TTErrorFileName.c_str());
         if(TTError == 0)
         {
-            ShowMessage("Analysis error file failed to open - can't be created");
+//            ShowMessage("Analysis error file failed to open - can't be created");
             Utilities->CallLogPop(2233);
             return(false);
         }
@@ -17950,7 +17950,7 @@ different to the train's front element name (whether null or not) (no report), a
         DepChecked << '\n' << AtLocChecked << '\n' << SequenceLog << '\n' << AnsiString(e.Message);
 
         TTError.close();
-        ShowMessage("Error in Conflict Analysis: A file called 'Analysis Error.txt' has been created in your Formatted timetables folder. Please send this file together with your railway and timetable files to railwayfeedback@gmail.com for investigation - many thanks");
+//        ShowMessage("Error in Conflict Analysis: A file called 'Analysis Error.txt' has been created in your Formatted timetables folder. Please send this file together with your railway and timetable files to railwayfeedback@gmail.com for investigation - many thanks");
         Utilities->CallLogPop(2226);
         return(false);
     }
