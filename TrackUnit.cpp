@@ -11996,7 +11996,7 @@ void TOnePrefDir::ConvertPrefDirSearchVector(int Caller)
 /* drop this, check dropped from search
       if(PrefDirVector.size() > 200)
        {
-//       ShowMessage("The selected track segment is becoming too long, until it is accepted further elements can only be added one at a time");
+       ShowMessage("The selected track segment is becoming too long, until it is accepted further elements can only be added one at a time");
        }
 */
     Utilities->CallLogPop(148);
