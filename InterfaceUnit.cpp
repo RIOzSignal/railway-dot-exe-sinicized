@@ -651,9 +651,9 @@ __fastcall TInterface::TInterface(TComponent* Owner) : TForm(Owner)
         MainScreen->Canvas->Brush->Color = Utilities->clTransparent;
         MainScreen->Canvas->FillRect(MainScreen->ClientRect);
 
-        if((Screen->Width < 3840) || (Screen->Height < 2160))
+        if((Screen->Width < 1920) || (Screen->Height < 1080))
         {
-			ShowMessage("推荐【双屏幕 或 宽域屏】体验更佳！");
+			ShowMessage("推荐【组合屏 或 宽域屏】体验更佳！");
         }
         SkipFormResizeEvent = true; // added at v2.1.0
         MasterClock->Enabled = true;
