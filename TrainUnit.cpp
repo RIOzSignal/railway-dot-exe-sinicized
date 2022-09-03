@@ -2329,10 +2329,10 @@ Graphics::TBitmap *TTrain::SetOneGraphicCode(char CodeChar)
 void TTrain::SetHeadCodeGraphics(int Caller, AnsiString Code)
 {
     Utilities->CallLog.push_back(Utilities->TimeStamp() + "," + AnsiString(Caller) + ",SetHeadCodeGraphics," + HeadCode);
-    if(Code.Length() != 4)
+/*    if(Code.Length() != 4)
     {
-        TrainController->StopTTClockMessage(62, "车次字符数不正确！");
-    }
+        TrainController->StopTTClockMessage(62, "Headcode Incorrect length");
+    }*/
     for(int x = 1; x < 5; x++) // AnsiString indices start at 1
     {
         HeadCodeGrPtr[x - 1]->Assign(SetOneGraphicCode(Code[x]));
@@ -5435,10 +5435,10 @@ void TTrain::FrontTrainSplit(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can split when power restored
     {
-        if(!ZeroPowerNoFrontSplitMessage)
+/*        if(!ZeroPowerNoFrontSplitMessage)
         {
-            TrainController->StopTTClockMessage(82, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(82, HeadCode + ": A train without power can't split");
+        }*/
         ZeroPowerNoFrontSplitMessage = true;
         Utilities->CallLogPop(2137);
         return;
@@ -5745,10 +5745,10 @@ void TTrain::RearTrainSplit(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can split when power restored
     {
-        if(!ZeroPowerNoRearSplitMessage)
+/*        if(!ZeroPowerNoRearSplitMessage)
         {
-            TrainController->StopTTClockMessage(83, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(83, HeadCode + ": A train without power can't split");
+        }*/
         ZeroPowerNoRearSplitMessage = true;
         Utilities->CallLogPop(2138);
         return;
@@ -6055,7 +6055,7 @@ void TTrain::FinishJoin(int Caller)
     {
 /*        if(!FailedTrainNoFinishJoinMessage)
         {
-            TrainController->StopTTClockMessage(84, HeadCode + "【列车发生故障】");
+            TrainController->StopTTClockMessage(84, HeadCode + ": A failed train can't join another under timetable control");
         }*/
         FailedTrainNoFinishJoinMessage = true;
         Utilities->CallLogPop(2139);
@@ -6097,10 +6097,10 @@ void TTrain::JoinedBy(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can join when power restored)
     {
-        if(!ZeroPowerNoJoinedByMessage)
+/*        if(!ZeroPowerNoJoinedByMessage)
         {
-            TrainController->StopTTClockMessage(85, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(85, HeadCode + ": A train without power can't be joined by another under timetable control");
+        }*/
         ZeroPowerNoJoinedByMessage = true;
         Utilities->CallLogPop(2140);
         return;
@@ -6168,10 +6168,10 @@ void TTrain::ChangeTrainDirection(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can change direction when power restored)
     {
-        if(!ZeroPowerNoCDTMessage)
+/*        if(!ZeroPowerNoCDTMessage)
         {
-            TrainController->StopTTClockMessage(86, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(86, HeadCode + ": A train without power can't change direction under timetable control");
+        }*/
         ZeroPowerNoCDTMessage = true;
         Utilities->CallLogPop(2141);
         return;
@@ -6243,10 +6243,10 @@ void TTrain::NewTrainService(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can form new service when power restored)
     {
-        if(!ZeroPowerNoNewServiceMessage)
+/*        if(!ZeroPowerNoNewServiceMessage)
         {
-            TrainController->StopTTClockMessage(87, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(87, HeadCode + ": A train without power can't form a new service");
+        }*/
         ZeroPowerNoNewServiceMessage = true;
         Utilities->CallLogPop(2142);
         return;
@@ -6542,10 +6542,10 @@ void TTrain::NewShuttleFromNonRepeatService(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can for new service when power restored)
     {
-        if(!ZeroPowerNoNewShuttleFromNonRepeatMessage)
+/*        if(!ZeroPowerNoNewShuttleFromNonRepeatMessage)
         {
-            TrainController->StopTTClockMessage(88, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(88, HeadCode + ": A train without power can't form a new service");
+        }*/
         ZeroPowerNoNewShuttleFromNonRepeatMessage = true;
         Utilities->CallLogPop(2143);
         return;
@@ -6602,10 +6602,10 @@ void TTrain::RepeatShuttleOrRemainHere(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can for new service when power restored)
     {
-        if(!ZeroPowerNoRepeatShuttleMessage)
+/*        if(!ZeroPowerNoRepeatShuttleMessage)
         {
-            TrainController->StopTTClockMessage(89, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(89, HeadCode + ": A train without power can't form a new service");
+        }*/
         ZeroPowerNoRepeatShuttleMessage = true;
         Utilities->CallLogPop(2144);
         return;
@@ -6645,10 +6645,10 @@ void TTrain::RepeatShuttleOrNewNonRepeatService(int Caller)
     if(PowerAtRail < 1)
     // new at v2.4.0 (ActionVectorEntryPtr not incremented so can for new service when power restored)
     {
-        if(!ZeroPowerNoRepeatShuttleOrNewServiceMessage)
+/*        if(!ZeroPowerNoRepeatShuttleOrNewServiceMessage)
         {
-            TrainController->StopTTClockMessage(90, HeadCode + "【列车发生故障】");
-        }
+            TrainController->StopTTClockMessage(90, HeadCode + ": A train without power can't form a new service");
+        }*/
         ZeroPowerNoRepeatShuttleOrNewServiceMessage = true;
         Utilities->CallLogPop(2145);
         return;
@@ -9850,7 +9850,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
         {
             // may still have eof even if read a line (no CRLF at end), and
             // if so need to process it
-			TimetableMessage(GiveMessages, "【时刻自检】不合格！");
+//            TimetableMessage(GiveMessages, "Timetable invalid - file empty");
             TTBLFile.close();
             delete[] TrainTimetableString;
             Utilities->CallLogPop(1611);
@@ -9868,7 +9868,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
             {
                 // may still have eof even if read a line (no CRLF at end), and
                 // if so need to process it
-                TimetableMessage(GiveMessages, "请设置【天窗结束】时间！");
+//                TimetableMessage(GiveMessages, "Timetable invalid - unable to find a valid start time on its own line");
                 TTBLFile.close();
                 delete[] TrainTimetableString;
                 Utilities->CallLogPop(772);
@@ -9914,7 +9914,7 @@ bool TTrainController::TimetableIntegrityCheck(int Caller, char *FileName, bool 
             if(EndOfFile && (Count < 2))
             // Timetable must contain at least two relevant lines, one for start time and at least one train
             {
-				TimetableMessage(GiveMessages, "必须编制至少一个车次条目！");
+//                TimetableMessage(GiveMessages, "Timetable has too few or no relevant entries - must have a start time on its own line and at least one train");
                 TTBLFile.close();
                 delete[] TrainTimetableString;
                 Utilities->CallLogPop(771);
@@ -10161,7 +10161,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
             {
                 SubStringLength = OneLine.Length();
             }
-			TimetableMessage(GiveMessages, "请按格式编制完整时刻表！【" + OneLine.SubString(1, SubStringLength) + "】");
+//            TimetableMessage(GiveMessages, "Error in timetable - entry incomplete: see '" + OneLine.SubString(1, SubStringLength) + "'....");
             Utilities->CallLogPop(766);
             return(false);
         }
@@ -10228,9 +10228,9 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 {
                     SubStringLength = OneLine.Length();
                 }
-                TimetableMessage(GiveMessages,
-                                 "请按顺序编制完整时刻表！【" +
-                                 OneLine.SubString(1, SubStringLength) + "】");
+//                TimetableMessage(GiveMessages,
+//                                 "Error in timetable - must have at least a start and a finish event for a train that is not started under signaller control - see line beginning: '" +
+//                                 OneLine.SubString(1, SubStringLength) + "'....");
                 Utilities->CallLogPop(783);
                 return(false);
             }
@@ -10269,7 +10269,7 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                 if(!SplitEntry(0, OneEntry, GiveMessages, CheckLocationsExistInRailway, First, Second, Third, Fourth, RearStartOrRepeatMins,
                                FrontStartOrRepeatDigits, FormatType, LocationType, SequenceType, ShuttleLinkType, ExitList, Warning))
                 {
-                    TimetableMessage(GiveMessages, "请检查指令！【" + OneEntry + "】");
+//                    TimetableMessage(GiveMessages, "Error in timetable - Event: '" + OneEntry + "'");
                     Utilities->CallLogPop(756);
                     return(false);
                 }
@@ -10313,8 +10313,8 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                         if((HeadCode == "") || (Description == "") || (MaxRunningSpeed == 0) || (Mass == 0) || (MaxBrakeRate == 0)) // ||
                         // (PowerAtRail == 0)) allowed 0 for power at v2.4.0
                         {
-                            TimetableMessage(GiveMessages, "技术参数不完整【" +
-                                             OneEntry + "】");
+//                            TimetableMessage(GiveMessages, "Error in timetable - train information incomplete before 'Snt' or 'Snt-sh' start event: '" +
+//                                             OneEntry + "'");
                             Utilities->CallLogPop(1783);
                             return(false);
                         }
@@ -10331,9 +10331,9 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                         }
                         if((StartSpeed != 0) || (MaxRunningSpeed != 0) || (Mass != 0) || (MaxBrakeRate != 0) || (PowerAtRail != 0))
                         {
-                            TimetableMessage(GiveMessages,
-                                             "" +
-                                             TrainInfoStr + "【技术参数】无需重复描述！");
+//                            TimetableMessage(GiveMessages,
+//                                             "Error in timetable - information additional to a headcode & optional description given before 'Sfs', 'Sns', 'Sns-sh' or 'Sns-fsh' start event: '" +
+//                                             OneEntry + "'");
                             Utilities->CallLogPop(843);
                             return(false);
                         }
@@ -10494,13 +10494,13 @@ bool TTrainController::ProcessOneTimetableLine(int Caller, int Count, AnsiString
                     if(!SplitEntry(1, OneEntry, GiveMessages, CheckLocationsExistInRailway, First, Second, Third, Fourth, RearStartOrRepeatMins,
                                    FrontStartOrRepeatDigits, FormatType, LocationType, SequenceType, ShuttleLinkType, ExitList, Warning))
                     {
-                        TimetableMessage(GiveMessages, "请检查指令！【" + OneEntry + "】");
+//                        TimetableMessage(GiveMessages, "Error in timetable - Event: '" + OneEntry + "'");
                         Utilities->CallLogPop(757);
                         return(false);
                     }
                     if(SequenceType != Finish)
                     {
-                        TimetableMessage(GiveMessages, "请按格式编制完整时刻表！【" + OneEntry + "】");
+//                        TimetableMessage(GiveMessages, "Error in timetable - last event should be a finish: '" + OneEntry + "'");
                         Utilities->CallLogPop(785);
                         return(false);
                     }
@@ -11025,10 +11025,10 @@ bool TTrainController::CheckLocationValidity(int Caller, AnsiString LocStr, bool
     {
         if(!Track->TimetabledLocationNameAllocated(3, LocStr))
         {
-			TimetableMessage(GiveMessages, "请检查【" + LocStr +
-                             "" +
-                             "" +
-                             "】指令格式 或 位置名称！");
+/*            TimetableMessage(GiveMessages, "Location name '" + LocStr +
+                             "' appears in the timetable but is not a valid name.  To be valid the name must be a stopping location and apply to one or more platforms " +
+                             "(not concourses on their own), or to track at a blue non-station named location.  BUT NOTE THAT trains can't stop at continuations so a name " +
+                             "that includes a continuation will not be valid.");*/
             Utilities->CallLogPop(1357);
             return(false);
         }
@@ -11048,8 +11048,8 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
                                  HeadCode);
     if((HeadCode.Length() < 4) || (HeadCode.Length() > 8))
     {
-        TimetableMessage(GiveMessages, "【" + HeadCode +
-                         "】车次至少包含【4 ~ 8】个字符！");
+//        TimetableMessage(GiveMessages, "Headcode error in '" + HeadCode +
+//                         "', length must be between 4 and 8 characters, and last 4 must be a legitimate headcode. This error can also be caused by omitting a service reference after Sns, Snt-sh, Sns-sh, Fns, Fns-sh or Frh-sh");
         Utilities->CallLogPop(1359);
         return(false);
     }
@@ -11058,7 +11058,7 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
     {
         if((HeadCode[x] < ' ') || (HeadCode[x] > '~'))
         {
-            TimetableMessage(GiveMessages, "【" + HeadCode + "】有字符超出ASCII范围！");
+//            TimetableMessage(GiveMessages, "Non-printable character in headcode '" + HeadCode + "'");
             Utilities->CallLogPop(1895);
             return(false);
         }
@@ -11069,7 +11069,7 @@ bool TTrainController::CheckHeadCodeValidity(int Caller, bool GiveMessages, Ansi
         if(((HeadCode[HeadCode.Length() - x] < 'A') || (HeadCode[HeadCode.Length() - x] > 'Z')) && ((HeadCode[HeadCode.Length() - x] < 'a') ||
                                                                                                     (HeadCode[HeadCode.Length() - x] > 'z')) && ((HeadCode[HeadCode.Length() - x] < '0') || (HeadCode[HeadCode.Length() - x] > '9')))
         {
-            TimetableMessage(GiveMessages, "【" + HeadCode + "】只能使用字母和数字！");
+//            TimetableMessage(GiveMessages, "Headcode error in '" + HeadCode + "', headcode must consist of letters and digits only");
             Utilities->CallLogPop(1790);
             return(false);
         }
@@ -11098,7 +11098,7 @@ bool TTrainController::CheckAndPopulateListOfIDs(int Caller, AnsiString IDSet, T
         char C = IDSet[x];
         if(((C < '0') || (C > '9')) && (C != ' ') && (C != 'N') && (C != '-'))
         {
-            TimetableMessage(GiveMessages, "请检查【Fer ；" + IDSet + "】坐标 或 格式！");
+//            TimetableMessage(GiveMessages, "Illegal character in the set of element IDs following 'Fer' in '" + IDSet + "'");
             Utilities->CallLogPop(1522);
             return(false);
         }
@@ -11183,9 +11183,9 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     }
     if((SemiColonCount != 6) && (SemiColonCount != 7) && (SemiColonCount != 1) && (SemiColonCount != 0))
     {
-        TimetableMessage(GiveMessages, "请检查格式！【" + TrainInfoStr +
-                         "】" +
-                         "车次 ；方向 ；车速 ；限速 ；总重 ；制动 ；牵引");
+//        TimetableMessage(GiveMessages, "Error in train information in '" + TrainInfoStr +
+//                         "'.  Should be headcode + optional description for a continuing service;" +
+//                         " or headcode, description, start speed, max running speed, mass, brake force, power (and optional signaller max. speed) for a new service");
         Utilities->CallLogPop(880);
         return(false);
     }
@@ -11212,13 +11212,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         }
         if(Description == "")
         {
-			TimetableMessage(GiveMessages, "方向至少包含1个字符【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train description missing in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(884);
             return(false);
         }
         if(Description.Length() > 60)
         {
-			TimetableMessage(GiveMessages, "方向不能超过60个字符【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train description too long, limit of 60 characters '" + TrainInfoStr + "'");
             Utilities->CallLogPop(1157);
             return(false);
         }
@@ -11226,7 +11226,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         {
             if((Description[x] < ' ') || (Description[x] > '~'))
             {
-				TimetableMessage(GiveMessages, "有字符超出ASCII范围【" + TrainInfoStr + "】");
+//                TimetableMessage(GiveMessages, "Train description contains invalid characters in '" + TrainInfoStr + "'");
                 Utilities->CallLogPop(885);
                 return(false);
             }
@@ -11248,13 +11248,13 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(Description == "")
     {
-		TimetableMessage(GiveMessages, "方向至少包含1个字符【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train description missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(888);
         return(false);
     }
     if(Description.Length() > 60)
     {
-		TimetableMessage(GiveMessages, "方向不能超过60个字符【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train description too long, limit of 60 characters '" + TrainInfoStr + "'");
         Utilities->CallLogPop(1158);
         return(false);
     }
@@ -11262,7 +11262,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((Description[x] < ' ') || (Description[x] > 126))
         {
-			TimetableMessage(GiveMessages, "有字符超出ASCII范围【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train description contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(889);
             return(false);
         }
@@ -11273,7 +11273,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(StartSpeedStr == "")
     {
-		TimetableMessage(GiveMessages, "车速必须为自然数【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train starting speed missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(890);
         return(false);
     }
@@ -11281,7 +11281,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((StartSpeedStr[x] < '0') || (StartSpeedStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "车速必须为自然数【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train start speed contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(891);
             return(false);
         }
@@ -11292,7 +11292,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         StartSpeed = TTrain::MaximumSpeedLimit;
         if(!SSHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "速度上限400km/h【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train starting speed > 400km/h in '" + TrainInfoStr + "'.  Setting it to 400km/h");
             SSHigh = true;
         }
     }
@@ -11302,7 +11302,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     Remainder = Remainder.SubString(Pos + 1, Remainder.Length() - Pos);
     if(MaxRunningSpeedStr == "")
     {
-		TimetableMessage(GiveMessages, "限速必须为自然数【" + TrainInfoStr + "】");
+//        TimetableMessage(GiveMessages, "Train maximum running speed missing in '" + TrainInfoStr + "'");
         Utilities->CallLogPop(892);
         return(false);
     }
@@ -11310,7 +11310,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
     {
         if((MaxRunningSpeedStr[x] < '0') || (MaxRunningSpeedStr[x] > '9'))
         {
-			TimetableMessage(GiveMessages, "限速必须为自然数【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train maximum running speed contains invalid characters in '" + TrainInfoStr + "'");
             Utilities->CallLogPop(893);
             return(false);
         }
@@ -11321,7 +11321,7 @@ bool TTrainController::SplitTrainInfo(int Caller, AnsiString TrainInfoStr, AnsiS
         MaxRunningSpeed = TTrain::MaximumSpeedLimit;
         if(!MRSHigh) // added at v2.4.0
         {
-			TimetableMessage(GiveMessages, "速度上限400km/h【" + TrainInfoStr + "】");
+//            TimetableMessage(GiveMessages, "Train maximum running speed > 400km/h in '" + TrainInfoStr + "'.  Setting it to 400km/h");
             MRSHigh = true;
         }
     }
