@@ -6445,7 +6445,7 @@ void TInterface::MainScreenMouseDown2(int Caller, TMouseButton Button, TShiftSta
                                     SignallerControlStopMenuItem->Visible = true;
                                 }
                             }
-                            TrainHeadCodeMenuItem->Caption = Train.HeadCode + ":";
+                            TrainHeadCodeMenuItem->Caption = Train.HeadCode + "";
                             TrainController->StopTTClockFlag = true; // so TTClock stopped during MasterClockTimer function
                             TrainController->RestartTime = TrainController->TTClockTime;
                             PopupMenu->Popup(MainScreen->Left + X, MainScreen->Top + Y + 43); // menu stops everything so reset timetable time when restarts,
