@@ -966,7 +966,7 @@ void __fastcall TInterface::SpeedButtonClick(TObject *Sender)
                 {
                     Screen->Cursor = TCursor(-11); // Hourglass;
                     InfoPanel->Caption = "¨P ÆÌ»­ÄãµÄµ÷¶È ¨P";
-                    bool FillSelectionFlag = false;
+                    bool FillSelectionFlag = true;
 /*                    if(!FillSelectionMessageSentFlag)
                     {
                         UnicodeString MessageStr =
