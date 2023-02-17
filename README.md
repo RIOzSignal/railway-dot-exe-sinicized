@@ -1,6 +1,6 @@
-# Railway Operation Simulator (ROS)
+# Railway Operation Simulator (RailOS)
 
-Welcome to the ROS project, a railway simulator for Windows originally written in Borland's C++ Builder 4 Professional and now updated to work with Embarcadero's C++ Builder Community Edition v10.4.  Development to date has resulted in a complete and usable program that provides options to:
+Welcome to the RailOS project, a railway simulator for Windows originally written in Borland's C++ Builder 4 Professional and now updated to work with Embarcadero's C++ Builder Community Edition v10.4.  Development to date has resulted in a complete and usable program that provides options to:
 
 - build a railway of any size
 - add text of any available colour, font and size
@@ -19,7 +19,7 @@ A wide selection of track element types is available for building the railway, t
 
 Trains may operate to a timetable developed using the internal timetable editor, or under signaller control.  Three types of route are available:
 
-1. Automatic signal routes:  set signal to signal in preferred directions, the route is retained after trains pass and signals automatically return to green in stages as blocks ahead are cleared
+1. Automatic signal routes:  set signal to signal or from signal to any following signal in preferred directions, the route is retained after trains pass and signals automatically return to green in stages as blocks ahead are cleared
 2. Preferred direction routes:  set signal to signal or from signal to any following signal in preferred directions, and the route is cleared as trains pass
 3. Unrestricted routes:  set from most types of track element to other track elements in any direction.  The route is cleared as trains pass
 
@@ -48,7 +48,7 @@ Timetable editor icons from https://icons8.com used under Creative Commons Attri
 
 The following notice relates to incorporation of Internet Direct (Indy) components used in the multiplayer functions under the BSD Licence.
 
-Portions of this software are Copyright (c) 1993 – 2018, Chad Z. Hower (Kudzu) and the Indy Pit Crew – http://www.IndyProject.org/
+Portions of this software are Copyright (c) 1993 ??? 2018, Chad Z. Hower (Kudzu) and the Indy Pit Crew ??? http://www.IndyProject.org/
 
 License
 
@@ -58,8 +58,9 @@ Redistribution and use in source and binary forms, with or without modification,
     Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation, about box and/or other materials provided with the distribution.
     No personal names or organizations names associated with the Indy project may be used to endorse or promote products derived from this software without specific prior written permission of the specific individual or organization.
 
-THIS SOFTWARE IS PROVIDED BY Chad Z. Hower (Kudzu) and the Indy Pit Crew “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,  ROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+THIS SOFTWARE IS PROVIDED BY Chad Z. Hower (Kudzu) and the Indy Pit Crew ???AS IS??? AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,  ROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
+【THIS SOFTWARE IS PROVIDED  BY Albert Ball】
 【THIS SOFTWARE IS SINICIZED BY RIO≒Signal调度模拟Xeon_HSU】
